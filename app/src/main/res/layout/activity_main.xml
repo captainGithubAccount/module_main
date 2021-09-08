@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.example.module_main.state.MainViewModel" />
+        <variable
+            name="navigationOnclickListener"
+            type="com.example.module_main.state.MainViewModel.NavigationOnClickListener" />
+        <variable
+            name="navigationItemSelectedListener"
+            type="com.example.module_main.state.MainViewModel.NavigationItemSelectedListener" />
+
+        <variable
+            name="motionLayoutOnClickListener"
+            type="com.example.module_main.state.MainViewModel.MotionLayoutOnClickListener" />
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_main_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+
+                app:defaultNavHost="true"
+
+                app:layout_constraintBottom_toTopOf="@+id/linLay_main_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navGraph="@navigation/nav_graph_main" />
+
+            <LinearLayout
+                android:id="@+id/linLay_main_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:background="@drawable/bg_bottom_navigation"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:showIn="@layout/activity_main">
+
+                <include
+                    android:id="@+id/motion_include_rest"
+                    layout="@layout/item_rest_navigation_bottom_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClickListener="@{motionLayoutOnClickListener::onClick}" />
+
+                <include
+                    android:id="@+id/motion_include_translate"
+                    layout="@layout/item_translate_navigation_bottom_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClickListener="@{motionLayoutOnClickListener::onClick}" />
+
+                <include
+                    android:id="@+id/motion_include_explore"
+                    layout="@layout/item_explore_navigation_bottom_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClickListener="@{motionLayoutOnClickListener::onClick}" />
+
+                <include
+                    android:id="@+id/motion_include_mine"
+                    layout="@layout/item_mine_navigation_bottom_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClickListener="@{motionLayoutOnClickListener::onClick}" />
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.navigation.NavigationView
+            app:navigationItemSelectedListener = "@{navigationItemSelectedListener::onNavigationItemSelected}"
+
+
+            android:id="@+id/navigationview"
+            app:menu="@menu/menu_bottom_navigation_view"
+            app:headerLayout="@layout/header_navigation_drawer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

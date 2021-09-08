@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/restFragment">
+
+
+    <fragment
+        android:id="@+id/restFragment"
+        android:name="com.example.module_main.page.RestFragment"
+        android:label="RestFragment"
+        tools:layout="@layout/fragment_rest">
+        <action
+            android:id="@+id/action_restFragment_to_translateFragment"
+            app:destination="@id/translateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.example.module_main.page.ExploreFragment"
+        android:label="ExploreFragment"
+        tools:layout="@layout/fragment_explore"/>
+    <fragment
+        android:id="@+id/translateFragment"
+        android:name="com.example.module_main.page.TranslateFragment"
+        android:label="TranslateFragment"
+        tools:layout="@layout/fragment_translate"/>
+    <fragment
+        android:id="@+id/mineFragment"
+        android:name="com.example.module_main.page.MineFragment"
+        android:label="MineFragment"
+        tools:layout="@layout/fragment_mine"/>
+</navigation>

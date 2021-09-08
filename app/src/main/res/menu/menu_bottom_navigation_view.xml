@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/subtitle"
+            android:title="主题模块">
+        <menu>
+            <item
+                
+                android:id="@+id/item_menu_rest"
+                android:icon="@drawable/ic_rest_bottom_navigation_view_stroke"
+                android:title="休闲" />
+            <item
+                android:id="@+id/item_menu_explore"
+                android:icon="@drawable/ic_explore_bottom_navigation_view_stroke"
+                android:title="探索" />
+            <item
+                android:id="@+id/item_menu_translate"
+                android:icon="@drawable/ic_translate_navigation_bottom_view_stroke"
+                android:title="翻译" />
+            <item
+                android:id="@+id/item_menu_mine"
+                android:icon="@drawable/ic_user_bottom_navigation_view_stroke"
+                android:title="我的" />
+
+
+        </menu>
+        </item>
+    </group>
+
+
+
+
+
+<group
+android:checkableBehavior="single"
+android:id="@+id/group2">
+<item
+    android:id="@+id/subtitle2"
+    android:title="我的模块">
+    <menu>
+        <item
+            android:icon="@drawable/ic_header_study"
+            android:id="@+id/item_menu_words"
+            android:title="学习单词" />
+
+
+    </menu>
+</item>
+</group>
+    </menu>
