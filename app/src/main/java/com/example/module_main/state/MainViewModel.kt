@@ -1,22 +1,18 @@
 package com.example.module_main.state
 
 import android.app.Activity
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import com.example.module_main.R
 import com.example.module_main.databinding.ActivityMainBinding
-import java.security.AccessController.getContext
+
 
 class MainViewModel: ViewModel() {
 
@@ -28,6 +24,10 @@ class MainViewModel: ViewModel() {
             drawerLayout.open()
         }
     }
+
+
+
+
 
     /*
     * 导航抽屉菜单中的菜单子项点击事件

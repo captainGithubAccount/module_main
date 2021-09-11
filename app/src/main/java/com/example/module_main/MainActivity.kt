@@ -3,20 +3,21 @@ package com.example.module_main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.module_main.databinding.ActivityMainBinding
 import com.example.module_main.state.MainViewModel
 import com.example.module_main.state.MainViewModelFactory
+import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var _navController: NavController
+
+    //val fragmentRestBinding = FragmentRestBinding.inflate(layoutInflater)
 
     val mainViewModel: MainViewModel by viewModels<MainViewModel> {
         MainViewModelFactory()
@@ -42,13 +43,44 @@ class MainActivity : AppCompatActivity() {
         binding.mainViewModel = mainViewModel
         //val appBar = binding.topAppBar
 
-        //事件监听的绑定
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
+
+
 //        顶部导航菜单图标的点击事件
         binding.navigationOnclickListener = MainViewModel.NavigationOnClickListener(drawerLayout)
 
+        //导航栏的item点击跳转页面的监听
         binding.navigationItemSelectedListener = MainViewModel.NavigationItemSelectedListener(_navController,drawerLayout, this, binding)
+
+        //底部navigation的点击切换碎片的监听
         binding.motionLayoutOnClickListener = MainViewModel.MotionLayoutOnClickListener(binding, _navController)
+
+
+        //让左侧划出的部分宽度为全屏
+        binding.navigationview.layoutParams.also {
+            val width: Int = resources.displayMetrics.widthPixels
+            it.width = width
+        }.let {
+            binding.navigationview.layoutParams = it
+        }
+
+
+        //仿qq抽屉菜单拖动主屏幕跟随一起拖动效果监听
+
+        binding.drawerLayout.addDrawerListener(object : DrawerListener {
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+                // 主页内容
+                val contentView = drawerLayout.getChildAt(0)
+                // 侧边栏
+                // slideOffset 值默认是0~1
+                contentView.translationX = drawerView.measuredWidth * slideOffset
+            }
+
+            override fun onDrawerOpened(drawerView: View) {}
+            override fun onDrawerClosed(drawerView: View) {}
+            override fun onDrawerStateChanged(newState: Int) {}
+        })
 
 
     }

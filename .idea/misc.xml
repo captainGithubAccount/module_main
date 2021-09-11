@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../../../../layout/custom_preview.xml" value="0.153125" />
+        <entry key="app/src/main/res/drawable/bg_toolbar_color.xml" value="0.15416666666666667" />
+        <entry key="app/src/main/res/drawable/bgcolor_toolbar_and_bottom.xml" value="0.15416666666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.23703703703703705" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_local_florist_24.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/drawable/ic_explore_bottom_navigation_view.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/drawable/ic_explore_bottom_navigation_view_stroke.xml" value="0.16197916666666667" />
@@ -13,18 +17,23 @@
         <entry key="app/src/main/res/drawable/ic_item_user_bottom_navigation_view_stroke.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/drawable/ic_rest_bottom_navigation_view.xml" value="0.11481481481481481" />
         <entry key="app/src/main/res/drawable/ic_rest_bottom_navigation_view_stroke.xml" value="0.22239583333333332" />
+        <entry key="app/src/main/res/drawable/ic_toolbar_menu.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/drawable/ic_translate_navigation_bottom_view.xml" value="0.27589743589743587" />
         <entry key="app/src/main/res/drawable/ic_translate_navigation_bottom_view_stroke.xml" value="0.27589743589743587" />
         <entry key="app/src/main/res/drawable/ic_user_bottom_navigation_view.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/drawable/ic_user_bottom_navigation_view_stroke.xml" value="0.16197916666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/drawable/shape_rest_navigation_background.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.16203703703703703" />
         <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.16203703703703703" />
-        <entry key="app/src/main/res/layout/fragment_rest.xml" value="0.16203703703703703" />
+        <entry key="app/src/main/res/layout/fragment_rest.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_translate.xml" value="0.16203703703703703" />
         <entry key="app/src/main/res/layout/header_navigation_drawer.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/include_rest_backdrop.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/include_rest_backdrop1.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/include_rest_backdrop_poetry.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/item_explore_navigation_bottom_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_mine_navigation_bottom_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_navigation_bottom_view_found.xml" value="0.1962962962962963" />
@@ -34,6 +43,7 @@
         <entry key="app/src/main/res/layout/main_bottom_navigation_view.xml" value="0.165" />
         <entry key="app/src/main/res/layout/nav_main_bottom.xml" value="0.17222222222222222" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation_view.xml" value="0.335" />
+        <entry key="app/src/main/res/menu/menu_rest_toobar.xml" value="0.2640625" />
       </map>
     </option>
   </component>

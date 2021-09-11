@@ -61,7 +61,7 @@
                 motion:customFloatValue="1" />
             <CustomAttribute
                 motion:attributeName="colorFilter"
-                motion:customColorValue="@color/purple_200" />
+                motion:customColorValue="#86CED6" />
         </Constraint>
         <Constraint
             android:id="@+id/rest"
@@ -73,7 +73,7 @@
             motion:layout_constraintStart_toStartOf="parent" >
             <CustomAttribute
                 motion:attributeName="textColor"
-                motion:customColorValue="@color/purple_200" />
+                motion:customColorValue="#86CED6" />
         </Constraint>
     </ConstraintSet>
 </MotionScene>

@@ -11,7 +11,7 @@
 
         android:id="@+id/motionLayout_main_translate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="58dp"
         android:background="?attr/selectableItemBackground"
         app:layoutDescription="@xml/item_navigation_bottom_view_mine_scene">
 
