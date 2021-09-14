@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/linLay_rest_backdrop"
+            android:id="@+id/linLay_fragments_in_navhost_backdrop"
             style="@style/Widget.Shrine.Backdrop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -22,8 +22,8 @@
             android:orientation="vertical"
             android:paddingTop="88dp">
 
-            <include layout="@layout/include_rest_backdrop_lottie"
-                android:id="@+id/include_rest_backdrop_lottie"/>
+            <include layout="@layout/include_backdrop_rest"
+                android:id="@+id/include_fragments_in_navhost_backdrop_lottie"/>
 
 
 
@@ -31,7 +31,7 @@
 
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbarLayout_rest"
+            android:id="@+id/appbarLayout_fragments_in_navhost"
             app:elevation="0dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,20 +40,21 @@
 
             <com.google.android.material.appbar.MaterialToolbar
 
-                app:navigationIcon="@drawable/ic_toolbar_menu"
-                android:background="@drawable/bgcolor_toolbar_and_bottom"
-                android:id="@+id/toolbar_rest"
+                android:id="@+id/toolbar_fragments_in_navhost"
+                style="@style/Widget.Shrine.Toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="main"
+                android:background="@drawable/bgcolor_toolbar_and_bottom"
                 android:paddingStart="12dp"
                 android:paddingLeft="12dp"
                 android:paddingEnd="12dp"
                 android:paddingRight="12dp"
                 app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll"
 
-                style="@style/Widget.Shrine.Toolbar"
-                app:layout_scrollFlags="scroll" />
+                app:titleCentered="true"
+                app:navigationIcon="@drawable/ic_toolbar_menu"
+                app:title="休闲" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -63,7 +64,7 @@
         <androidx.core.widget.NestedScrollView
             android:paddingTop="56dp"
             android:layout_marginTop="56dp"
-            android:id="@+id/nsv_rest_content"
+            android:id="@+id/nsv_fragments_in_navhost_content"
             android:background="@drawable/shape_rest_nestedscrollview_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

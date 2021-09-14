@@ -51,39 +51,67 @@ class RestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //加载toolbar上的菜单
-        fragmentRestBinding.toolbarRest.inflateMenu(R.menu.menu_rest_toobar)
+        navhostFragmentsTemplateCode()
 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //三个共有toolbar的模版监听代码
+    private fun navhostFragmentsTemplateCode() {
+        //加载toolbar上的菜单
+        fragmentRestBinding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)
 
 
         //菜单item点击监听
-        fragmentRestBinding.toolbarRest.setOnMenuItemClickListener (object :NavigationIconClickListener(
-            _activity!!,
-            fragmentRestBinding.nsvRestContent,
-            AccelerateDecelerateInterpolator(),
-            ContextCompat.getDrawable(
+        fragmentRestBinding.toolbarFragmentsInNavhost.setOnMenuItemClickListener(object :
+            NavigationIconClickListener(
                 _activity!!,
-                R.drawable.ic_rest_menu_show_backdrop_end// Menu open icon
-            ),
-            ContextCompat.getDrawable(
-                _activity!!,
-                R.drawable.ic_rest_menu_show_backdrop_start// Menu close icon
-            )){
+                fragmentRestBinding.nsvFragmentsInNavhostContent,
+                AccelerateDecelerateInterpolator(),
+                ContextCompat.getDrawable(
+                    _activity!!,
+                    R.drawable.ic_rest_menu_show_backdrop_end// Menu open icon
+                ),
+                ContextCompat.getDrawable(
+                    _activity!!,
+                    R.drawable.ic_rest_menu_show_backdrop_start// Menu close icon
+                )
+            ) {
             override fun onMenuItemClick(p0: MenuItem?): Boolean {
 
                 when (p0?.itemId) {
                     R.id.menuitem_rest_show_backdrop -> {
-                        
+
                         flag++
-                        if( flag%2 == 0)
-                            //Toast.makeText(_activity,"hi",Toast.LENGTH_SHORT).show()
-                            fragmentRestBinding.includeRestBackdropLottie.animationViewRestBackdropLottie.also{
+                        if (flag % 2 == 0)
+                        //Toast.makeText(_activity,"hi",Toast.LENGTH_SHORT).show()
+                            fragmentRestBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.also {
                                 it.repeatCount = 10
-                                it.repeatMode =  LottieDrawable.RESTART
+                                it.repeatMode = LottieDrawable.RESTART
                                 it.playAnimation()
                             }
                         else
-                            fragmentRestBinding.includeRestBackdropLottie.animationViewRestBackdropLottie.pauseAnimation()
+                            fragmentRestBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.pauseAnimation()
 
                         true
                     }
@@ -95,9 +123,7 @@ class RestFragment : Fragment() {
 
             }
         })
-
     }
-
 
 
     override fun onDestroy() {

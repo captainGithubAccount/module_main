@@ -117,12 +117,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
+
                 app:layoutDescription="@xml/scene_main_drawer_bottom"
                 tools:showIn="@layout/activity_main">
 
 
                 <ImageView
-                    android:foreground="@color/cardview_dark_background"
+
+
                     android:id="@+id/img_drawer_motion_calendar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

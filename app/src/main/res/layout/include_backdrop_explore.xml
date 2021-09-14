@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:showIn="@layout/fragment_explore">
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:paddingBottom="60dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/lottileview_fragments_in_navhost_backdrop_lottie"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/lottie_backdrop" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButton
+
+                style="@style/Widget.Shrine.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《正身》" />
+
+            <View
+                style="@style/Widget.Shrine.Button.TextButton"
+                android:layout_width="56dp"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="?android:attr/textColorPrimary" />
+
+            <com.google.android.material.button.MaterialButton
+
+                style="@style/Widget.Shrine.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="胡秉言" />
+
+            <com.google.android.material.button.MaterialButton
+
+                style="@style/Widget.Shrine.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="常查己缺点" />
+
+            <com.google.android.material.button.MaterialButton
+
+                style="@style/Widget.Shrine.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="方能正其身" />
+
+            <com.google.android.material.button.MaterialButton
+
+                style="@style/Widget.Shrine.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="包容能接纳" />
+
+            <com.google.android.material.button.MaterialButton
+
+                style="@style/Widget.Shrine.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="慈悲做善人" />
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

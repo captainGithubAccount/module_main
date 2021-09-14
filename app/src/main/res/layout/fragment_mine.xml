@@ -1,14 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".page.MineFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="mine" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/linLay_fragments_in_navhost_backdrop"
+            style="@style/Widget.Shrine.Backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="88dp">
+
+            <include layout="@layout/include_backdrop_mine"
+                android:id="@+id/include_fragments_in_navhost_backdrop_lottie"/>
+
+
+
+        </LinearLayout>
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout_fragments_in_navhost"
+            app:elevation="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+
+                android:id="@+id/toolbar_fragments_in_navhost"
+                style="@style/Widget.Shrine.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/bgcolor_toolbar_and_bottom"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll"
+
+                app:navigationIcon="@drawable/ic_toolbar_menu"
+                app:titleCentered="true"
+                app:title="我的" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Screen content -->
+        <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
+
+        <androidx.core.widget.NestedScrollView
+            android:paddingTop="56dp"
+            android:layout_marginTop="56dp"
+            android:id="@+id/nsv_fragments_in_navhost_content"
+            android:background="@drawable/shape_rest_nestedscrollview_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="8dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ddd" />
+        </androidx.core.widget.NestedScrollView>
+
+
+    </FrameLayout>
+</layout>
