@@ -9,6 +9,7 @@
     </data>
 
     <FrameLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,7 +21,7 @@
 
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingTop="88dp">
+            android:paddingTop="72dp">
 
             <include layout="@layout/include_backdrop_rest"
                 android:id="@+id/include_fragments_in_navhost_backdrop_lottie"/>
@@ -40,15 +41,18 @@
 
             <com.google.android.material.appbar.MaterialToolbar
 
+                android:fitsSystemWindows="true"
+                android:gravity="center"
                 android:id="@+id/toolbar_fragments_in_navhost"
                 style="@style/Widget.Shrine.Toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="82dp"
                 android:background="@drawable/bgcolor_toolbar_and_bottom"
                 android:paddingStart="12dp"
                 android:paddingLeft="12dp"
                 android:paddingEnd="12dp"
                 android:paddingRight="12dp"
+
                 app:contentInsetStart="0dp"
                 app:layout_scrollFlags="scroll"
 
@@ -63,7 +67,7 @@
 
         <androidx.core.widget.NestedScrollView
             android:paddingTop="56dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="67dp"
             android:id="@+id/nsv_fragments_in_navhost_content"
             android:background="@drawable/shape_rest_nestedscrollview_background"
             android:layout_width="match_parent"
