@@ -104,13 +104,58 @@
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigationview"
 
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-           android:background="@drawable/bgcolor_toolbar_and_bottom"
+            android:background="@drawable/bgcolor_toolbar_and_bottom"
             app:headerLayout="@layout/header_navigation_drawer"
             app:menu="@menu/menu_bottom_navigation_view"
-            app:navigationItemSelectedListener="@{navigationItemSelectedListener::onNavigationItemSelected}" />
+            app:navigationItemSelectedListener="@{navigationItemSelectedListener::onNavigationItemSelected}">
+
+            <com.example.module_main.view.DrawerContent
+                android:id="@+id/motion_main_drawer_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:layoutDescription="@xml/scene_main_drawer_bottom"
+                tools:showIn="@layout/activity_main">
+
+
+                <ImageView
+                    android:foreground="@color/cardview_dark_background"
+                    android:id="@+id/img_drawer_motion_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/img_drawer_motion_night"
+                    app:layout_constraintTop_toBottomOf="@+id/img_drawer_motion_night"
+                    app:srcCompat="@drawable/ic_main_drawer_motion_calendar" />
+
+                <ImageView
+                    android:id="@+id/img_drawer_motion_night"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/img_drawer_motion_calendar"
+                    app:layout_constraintStart_toStartOf="@+id/img_drawer_motion_setting"
+                    app:layout_constraintTop_toBottomOf="@+id/img_drawer_motion_setting"
+                    app:srcCompat="@drawable/ic_main_drawer_motion_night" />
+
+                <ImageView
+                    android:id="@+id/img_drawer_motion_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.82"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.38"
+                    app:srcCompat="@drawable/ic_main_drawer_motion_setting" />
+            </com.example.module_main.view.DrawerContent>
+
+
+        </com.google.android.material.navigation.NavigationView>
 
 
     </androidx.drawerlayout.widget.DrawerLayout>

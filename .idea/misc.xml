@@ -31,8 +31,11 @@
         <entry key="app/src/main/res/layout/fragment_rest.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_translate.xml" value="0.16203703703703703" />
         <entry key="app/src/main/res/layout/header_navigation_drawer.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/include_main_drawer_motion_bottom.xml" value="0.27794871794871795" />
+        <entry key="app/src/main/res/layout/include_main_motion_drawer_content.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/include_rest_backdrop.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/include_rest_backdrop1.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/include_rest_backdrop_lottie.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/include_rest_backdrop_poetry.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/item_explore_navigation_bottom_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_mine_navigation_bottom_view.xml" value="0.1" />
@@ -42,8 +45,10 @@
         <entry key="app/src/main/res/layout/item_translate_navigation_bottom_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/main_bottom_navigation_view.xml" value="0.165" />
         <entry key="app/src/main/res/layout/nav_main_bottom.xml" value="0.17222222222222222" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation_view.xml" value="0.335" />
         <entry key="app/src/main/res/menu/menu_rest_toobar.xml" value="0.2640625" />
+        <entry key="app/src/main/res/xml/bottom_main_drawer.xml" value="0.2640625" />
       </map>
     </option>
   </component>

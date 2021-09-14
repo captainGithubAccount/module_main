@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         _navController = findNavController(R.id.nav_main_host_fragment)
     }*/
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -70,18 +72,26 @@ class MainActivity : AppCompatActivity() {
 
         binding.drawerLayout.addDrawerListener(object : DrawerListener {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+
                 // 主页内容
                 val contentView = drawerLayout.getChildAt(0)
                 // 侧边栏
                 // slideOffset 值默认是0~1
                 contentView.translationX = drawerView.measuredWidth * slideOffset
+
+
+                //侧边滑动的距离等于moon motion的progress,从而实现导航抽屉和滑动之前的motion动画
+                binding.motionMainDrawerBottom.progress = slideOffset
             }
 
             override fun onDrawerOpened(drawerView: View) {}
             override fun onDrawerClosed(drawerView: View) {}
             override fun onDrawerStateChanged(newState: Int) {}
+
+
         })
 
-
     }
+
+
 }

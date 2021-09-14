@@ -9,14 +9,17 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.Toast
 import android.widget.Toolbar
 import com.example.module_main.databinding.FragmentRestBinding
 import androidx.core.content.ContextCompat
+import com.airbnb.lottie.LottieDrawable
 import com.example.module_main.R
 import com.example.module_main.event.fragment.NavigationIconClickListener
 
 
 class RestFragment : Fragment() {
+    private var flag = 1
     private var _activity: Activity? = null
 
     private var _binding: FragmentRestBinding? = null
@@ -51,6 +54,8 @@ class RestFragment : Fragment() {
         //加载toolbar上的菜单
         fragmentRestBinding.toolbarRest.inflateMenu(R.menu.menu_rest_toobar)
 
+
+
         //菜单item点击监听
         fragmentRestBinding.toolbarRest.setOnMenuItemClickListener (object :NavigationIconClickListener(
             _activity!!,
@@ -65,14 +70,28 @@ class RestFragment : Fragment() {
                 R.drawable.ic_rest_menu_show_backdrop_start// Menu close icon
             )){
             override fun onMenuItemClick(p0: MenuItem?): Boolean {
-                return super.onMenuItemClick(p0)
+
                 when (p0?.itemId) {
                     R.id.menuitem_rest_show_backdrop -> {
+                        
+                        flag++
+                        if( flag%2 == 0)
+                            //Toast.makeText(_activity,"hi",Toast.LENGTH_SHORT).show()
+                            fragmentRestBinding.includeRestBackdropLottie.animationViewRestBackdropLottie.also{
+                                it.repeatCount = 10
+                                it.repeatMode =  LottieDrawable.RESTART
+                                it.playAnimation()
+                            }
+                        else
+                            fragmentRestBinding.includeRestBackdropLottie.animationViewRestBackdropLottie.pauseAnimation()
+
                         true
                     }
 
                     else -> false
                 }
+
+                return super.onMenuItemClick(p0)
 
             }
         })

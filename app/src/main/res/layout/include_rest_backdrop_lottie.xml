@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:showIn="@layout/fragment_rest"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/img_header_user" />
+    <data>
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/img_header_user" />
+    </data>
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/img_header_user" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:showIn="@layout/fragment_rest">
 
-</LinearLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:paddingBottom="60dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/animation_view_rest_backdrop_lottie"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/lottie_backdrop" />
+        <include layout="@layout/include_rest_backdrop_poetry"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </FrameLayout>
+</layout>
