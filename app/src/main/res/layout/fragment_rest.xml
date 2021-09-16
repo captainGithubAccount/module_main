@@ -56,6 +56,8 @@
                 app:contentInsetStart="0dp"
                 app:layout_scrollFlags="scroll"
 
+                app:titleTextAppearance="@style/toolbar_testStyle"
+                app:titleTextColor="@color/cardview_dark_background"
                 app:titleCentered="true"
                 app:navigationIcon="@drawable/ic_toolbar_menu"
                 app:title="休闲" />

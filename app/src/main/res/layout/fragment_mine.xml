@@ -39,6 +39,7 @@
 
             <com.google.android.material.appbar.MaterialToolbar
 
+                app:titleTextAppearance="@style/toolbar_testStyle"
                 android:fitsSystemWindows="true"
                 android:id="@+id/toolbar_fragments_in_navhost"
                 style="@style/Widget.Shrine.Toolbar"
@@ -52,6 +53,7 @@
                 app:contentInsetStart="0dp"
                 app:layout_scrollFlags="scroll"
 
+                app:titleTextColor="@color/cardview_dark_background"
                 app:navigationIcon="@drawable/ic_toolbar_menu"
                 app:titleCentered="true"
                 app:title="我的" />

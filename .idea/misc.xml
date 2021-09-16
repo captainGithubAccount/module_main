@@ -24,17 +24,20 @@
         <entry key="app/src/main/res/drawable/ic_user_bottom_navigation_view.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/drawable/ic_user_bottom_navigation_view_stroke.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/drawable/shape_rest_navigation_background.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/drawable/shape_rest_nestedscrollview_background.xml" value="0.17592592592592593" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.13055555555555556" />
-        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.13333333333333333" />
         <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.16203703703703703" />
-        <entry key="app/src/main/res/layout/fragment_rest.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_rest.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_tab_one.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_translate.xml" value="0.16203703703703703" />
         <entry key="app/src/main/res/layout/header_navigation_drawer.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/include_backdrop_explore.xml" value="0.20153985507246377" />
         <entry key="app/src/main/res/layout/include_backdrop_mine.xml" value="0.20153985507246377" />
         <entry key="app/src/main/res/layout/include_explore_backdrop_lottie.xml" value="0.19519927536231885" />
+        <entry key="app/src/main/res/layout/include_explore_nestscroll.xml" value="0.26875" />
         <entry key="app/src/main/res/layout/include_main_drawer_motion_bottom.xml" value="0.27794871794871795" />
         <entry key="app/src/main/res/layout/include_main_motion_drawer_content.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/include_mine_backdrop_poetry.xml" value="0.20153985507246377" />
@@ -42,7 +45,8 @@
         <entry key="app/src/main/res/layout/include_rest_backdrop1.xml" value="0.375" />
         <entry key="app/src/main/res/layout/include_rest_backdrop_lottie.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/include_rest_backdrop_poetry.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/item_explore_navigation_bottom_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/include_tabone_grade_content.xml" value="0.26875" />
+        <entry key="app/src/main/res/layout/item_explore_navigation_bottom_view.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_mine_navigation_bottom_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_navigation_bottom_view_found.xml" value="0.1962962962962963" />
         <entry key="app/src/main/res/layout/item_navigation_bottom_view_mine.xml" value="0.2640625" />

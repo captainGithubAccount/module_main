@@ -29,6 +29,7 @@ class RestFragment : Fragment() {
 
     }
 
+
     override fun onStart() {
         super.onStart()
         setHasOptionsMenu(true)
@@ -76,7 +77,7 @@ class RestFragment : Fragment() {
 
 
 
-    //三个共有toolbar的模版监听代码
+    //三个共有toolbar的模版监听代码 
     private fun navhostFragmentsTemplateCode() {
         //加载toolbar上的菜单
         fragmentRestBinding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)

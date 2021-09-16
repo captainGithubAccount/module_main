@@ -4,7 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import  type="com.example.module_main.adapter.GradeViewPager2Adapter"/>
 
+        <variable
+            name="viewpager"
+            type="GradeViewPager2Adapter" />
     </data>
 
     <FrameLayout
@@ -52,7 +56,8 @@
                 android:paddingRight="12dp"
                 app:contentInsetStart="0dp"
                 app:layout_scrollFlags="scroll"
-
+                app:titleTextColor="@color/cardview_dark_background"
+                app:titleTextAppearance="@style/toolbar_testStyle"
                 app:navigationIcon="@drawable/ic_toolbar_menu"
                 app:title="发现"
                 app:titleCentered="true" />
@@ -62,9 +67,11 @@
         <!-- Screen content -->
         <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
 
-        <androidx.core.widget.NestedScrollView
-            android:paddingTop="56dp"
+        <FrameLayout
+
+
             android:layout_marginTop="67dp"
+
             android:id="@+id/nsv_fragments_in_navhost_content"
             android:background="@drawable/shape_rest_nestedscrollview_background"
             android:layout_width="match_parent"
@@ -72,11 +79,65 @@
             android:elevation="8dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="ddd" />
-        </androidx.core.widget.NestedScrollView>
+                android:orientation="vertical">
+
+
+                <com.google.android.material.tabs.TabLayout
+
+                    app:tabTextAppearance="@style/tabLayout_testStyle"
+                    app:tabSelectedTextColor="#00BCD4"
+                    android:background="#F1F1F1"
+                    android:layout_marginTop="34dp"
+                    android:id="@+id/tabLay_replore_content_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                </com.google.android.material.tabs.TabLayout>
+                <com.example.module_main.view.ViewPagerHeader
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="0dp"
+                    android:id="@+id/motionLayout_explore_lottie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    app:layoutDescription="@xml/scene_explore_viewpager_header">
+
+                    <com.airbnb.lottie.LottieAnimationView
+
+                        android:padding="0dp"
+
+                        android:id="@+id/lottie_view_explore_content_viewpager_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:lottie_rawRes="@raw/lottie_explore_viewpager_header" />
+
+                </com.example.module_main.view.ViewPagerHeader>
+
+                <androidx.viewpager2.widget.ViewPager2
+
+                    android:id="@+id/vp2_explore_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <androidx.core.widget.NestedScrollView
+                    android:scrollbars="vertical"
+                    android:scrollbarThumbVertical="@color/nestscrollbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <include layout="@layout/include_explore_nestscroll" />
+                </androidx.core.widget.NestedScrollView>
+
+
+
+            </LinearLayout>
+
+        </FrameLayout>
 
 
     </FrameLayout>

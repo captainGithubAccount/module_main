@@ -38,14 +38,14 @@ class MineFragment : Fragment() {
 
     // This property is only valid between onCreateView and
 // onDestroyView.
-    private val fragmentRestBinding get() = _binding!!
+    private val fragmentMineBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMineBinding.inflate(inflater, container, false)
-        val view = fragmentRestBinding.root
+        val view = fragmentMineBinding.root
         return view
     }
 
@@ -78,14 +78,14 @@ class MineFragment : Fragment() {
     //三个共有toolbar的模版监听代码
     private fun navhostFragmentsTemplateCode() {
         //加载toolbar上的菜单
-        fragmentRestBinding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)
+        fragmentMineBinding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)
 
 
         //菜单item点击监听
-        fragmentRestBinding.toolbarFragmentsInNavhost.setOnMenuItemClickListener(object :
+        fragmentMineBinding.toolbarFragmentsInNavhost.setOnMenuItemClickListener(object :
             NavigationIconClickListener(
                 _activity!!,
-                fragmentRestBinding.nsvFragmentsInNavhostContent,
+                fragmentMineBinding.nsvFragmentsInNavhostContent,
                 AccelerateDecelerateInterpolator(),
                 ContextCompat.getDrawable(
                     _activity!!,
@@ -104,13 +104,13 @@ class MineFragment : Fragment() {
                         flag++
                         if (flag % 2 == 0)
                         //Toast.makeText(_activity,"hi",Toast.LENGTH_SHORT).show()
-                            fragmentRestBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.also {
+                            fragmentMineBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.also {
                                 it.repeatCount = 10
                                 it.repeatMode = LottieDrawable.RESTART
                                 it.playAnimation()
                             }
                         else
-                            fragmentRestBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.pauseAnimation()
+                            fragmentMineBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.pauseAnimation()
 
                         true
                     }

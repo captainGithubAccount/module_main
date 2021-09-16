@@ -9,13 +9,14 @@
     <color name="white">#FFFFFFFF</color>
 
 
+    <color name="nestscrollbar">#00BCD4</color>
     <color name="colorPrimary">#E0E0E0</color>
     <color name="colorPrimaryDark">#FBB8AC</color>
     <color name="colorAccent">#FEDBD0</color>
     <color name="textColorPrimary">#442C2E</color>
     <color name="toolbarIconColor">@color/textColorPrimary</color>
     <color name="loginPageBackgroundColor">#FFFFFF</color>
-    <color name="productGridBackgroundColor">#FFFFFF</color>
+    <color name="productGridBackgroundColor">#F1F1F1</color>
     <color name="textInputOutlineColor">#FBB8AC</color>
 </resources>
 
