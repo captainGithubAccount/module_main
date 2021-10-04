@@ -4,17 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import  type="com.example.module_main.adapter.GradeViewPager2Adapter"/>
+        <import  type="com.example.module_main.page.adapter.Vp2ExploreAdapter"/>
 
         <variable
             name="viewpager"
-            type="GradeViewPager2Adapter" />
+            type="Vp2ExploreAdapter" />
     </data>
 
+<!--  包括toolbar在内的整个碎片界面  -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--    被遮盖的backdrop部分    -->
         <LinearLayout
             android:id="@+id/linLay_fragments_in_navhost_backdrop"
             style="@style/Widget.Shrine.Backdrop"
@@ -24,7 +26,7 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingTop="72dp">
-
+<!--backdrop内的古诗和lottie部分-->
             <include layout="@layout/include_backdrop_explore"
                 android:id="@+id/include_fragments_in_navhost_backdrop_lottie"/>
 
@@ -32,7 +34,7 @@
 
         </LinearLayout>
 
-
+<!--AppBar/toolbar部分-->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarLayout_fragments_in_navhost"
             app:elevation="0dp"
@@ -67,11 +69,9 @@
         <!-- Screen content -->
         <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
 
+<!--   appbar下面的内容部分     -->
         <FrameLayout
-
-
             android:layout_marginTop="67dp"
-
             android:id="@+id/nsv_fragments_in_navhost_content"
             android:background="@drawable/shape_rest_nestedscrollview_background"
             android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-
+<!--explore碎片的tablayout部分-->
                 <com.google.android.material.tabs.TabLayout
 
                     app:tabTextAppearance="@style/tabLayout_testStyle"
@@ -98,6 +98,8 @@
 
 
                 </com.google.android.material.tabs.TabLayout>
+
+<!--        tab下的lottie部分        -->
                 <com.example.module_main.view.ViewPagerHeader
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="0dp"
@@ -117,6 +119,7 @@
 
                 </com.example.module_main.view.ViewPagerHeader>
 
+<!--       tab关联的viewpager，在lottie下方         -->
                 <androidx.viewpager2.widget.ViewPager2
 
                     android:id="@+id/vp2_explore_content"
@@ -124,15 +127,7 @@
                     android:layout_height="wrap_content" />
 
 
-                <androidx.core.widget.NestedScrollView
-                    android:scrollbars="vertical"
-                    android:scrollbarThumbVertical="@color/nestscrollbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <include layout="@layout/include_explore_nestscroll" />
-                </androidx.core.widget.NestedScrollView>
-
+                <include layout="@layout/include_explore_nestscroll_content" />
 
 
             </LinearLayout>

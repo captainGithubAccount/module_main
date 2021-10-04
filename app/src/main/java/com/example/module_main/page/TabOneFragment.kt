@@ -21,7 +21,7 @@ class TabOneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab_one, container, false)
+        return inflater.inflate(R.layout.fragment_tab_in_explore_one, container, false)
     }
 
 

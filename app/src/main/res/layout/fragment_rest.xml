@@ -8,11 +8,13 @@
 
     </data>
 
+    <!--  包括toolbar在内的整个碎片界面  -->
     <FrameLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--    被遮盖的backdrop部分    -->
         <LinearLayout
             android:id="@+id/linLay_fragments_in_navhost_backdrop"
             style="@style/Widget.Shrine.Backdrop"
@@ -23,6 +25,7 @@
             android:orientation="vertical"
             android:paddingTop="72dp">
 
+            <!--backdrop内的古诗和lottie部分-->
             <include layout="@layout/include_backdrop_rest"
                 android:id="@+id/include_fragments_in_navhost_backdrop_lottie"/>
 
@@ -31,6 +34,7 @@
         </LinearLayout>
 
 
+        <!--AppBar/toolbar部分-->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarLayout_fragments_in_navhost"
             app:elevation="0dp"
@@ -67,21 +71,43 @@
         <!-- Screen content -->
         <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
 
-        <androidx.core.widget.NestedScrollView
-            android:paddingTop="56dp"
-            android:layout_marginTop="67dp"
-            android:id="@+id/nsv_fragments_in_navhost_content"
-            android:background="@drawable/shape_rest_nestedscrollview_background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:elevation="8dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <TextView
+
+            <!--   appbar下面的内容部分     -->
+            <LinearLayout
+
+                android:layout_marginTop="67dp"
+                android:id="@+id/nsv_fragments_in_navhost_content"
+                android:background="@drawable/shape_rest_nestedscrollview_background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="ddd" />
-        </androidx.core.widget.NestedScrollView>
+                android:elevation="8dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.tabs.TabLayout
+                    app:tabTextAppearance="@style/tabLayout_testStyle"
+                    app:tabSelectedTextColor="#00BCD4"
+                    android:background="#F1F1F1"
+                    android:layout_marginTop="34dp"
+                    android:id="@+id/tabLay_rest_healthy"
+
+                    app:tabMode="scrollable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp2_rest_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
 
 
     </FrameLayout>

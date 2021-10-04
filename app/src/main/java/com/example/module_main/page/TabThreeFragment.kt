@@ -23,7 +23,7 @@ class TabThreeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab_three, container, false)
+        return inflater.inflate(R.layout.fragment_tab_in_explore_three, container, false)
     }
 
 }

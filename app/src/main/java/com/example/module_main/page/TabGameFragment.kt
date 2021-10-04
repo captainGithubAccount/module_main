@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.module_main.R
 
 
-class TabTwoFragment : Fragment() {
+class TabGameFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class TabTwoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab_in_explore_two, container, false)
+        return inflater.inflate(R.layout.fragment_tab_game, container, false)
     }
 
 }

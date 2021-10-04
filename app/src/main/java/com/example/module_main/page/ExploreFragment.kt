@@ -10,21 +10,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.content.ContextCompat
-import androidx.core.view.size
 import androidx.viewpager2.widget.ViewPager2
 import com.airbnb.lottie.LottieDrawable
 import com.example.module_main.R
-import com.example.module_main.adapter.GradeViewPager2Adapter
+import com.example.module_main.page.adapter.Vp2ExploreAdapter
 import com.example.module_main.databinding.FragmentExploreBinding
-import com.example.module_main.databinding.FragmentRestBinding
 import com.example.module_main.event.fragment.NavigationIconClickListener
 import com.google.android.material.tabs.TabLayoutMediator
 
+/*
+*
+* */
 
 class ExploreFragment : Fragment() {
 
 
-    private val gradeViewPager2Adapter: GradeViewPager2Adapter by lazy { GradeViewPager2Adapter(this) }
+    private val vp2ExploreAdapter: Vp2ExploreAdapter by lazy { Vp2ExploreAdapter(this) }
 
 
 
@@ -67,7 +68,7 @@ class ExploreFragment : Fragment() {
 
         //对viewpager2控件进行设置
         fragmentExploreBinding.vp2ExploreContent.let {
-            it.adapter = gradeViewPager2Adapter
+            it.adapter = vp2ExploreAdapter
             it.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
 
                 override fun onPageScrolled(

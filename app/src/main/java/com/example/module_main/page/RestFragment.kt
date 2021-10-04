@@ -9,18 +9,22 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.widget.Toast
-import android.widget.Toolbar
 import com.example.module_main.databinding.FragmentRestBinding
 import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieDrawable
 import com.example.module_main.R
 import com.example.module_main.event.fragment.NavigationIconClickListener
+import com.example.module_main.page.adapter.Vp2RestAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 class RestFragment : Fragment() {
     private var flag = 1
     private var _activity: Activity? = null
+
+    private val _vp2RvRestAdapter: Vp2RestAdapter by lazy{
+        Vp2RestAdapter(this)
+    }
 
     private var _binding: FragmentRestBinding? = null
     override fun onAttach(context: Context) {
@@ -45,6 +49,13 @@ class RestFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRestBinding.inflate(inflater, container, false)
+
+        _binding?.let {
+            it.lifecycleOwner = this
+            //it.rvRestContent.adapter = _restRvAdapter
+
+            it.vp2RestContent.adapter = _vp2RvRestAdapter
+        }
         val view = fragmentRestBinding.root
         return view
     }
@@ -53,6 +64,19 @@ class RestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navhostFragmentsTemplateCode()
+
+        TabLayoutMediator(fragmentRestBinding.tabLayRestHealthy, fragmentRestBinding.vp2RestContent) { tab,position ->
+
+            when (position) {
+                0 -> tab.text = "娱乐"
+                1 -> tab.text = "健康"
+                2 -> tab.text = "体育"
+                3 -> tab.text = "军事"
+                4 -> tab.text = "科技"
+                else -> tab.text = "游戏"
+            }
+
+        }.attach()
 
     }
 

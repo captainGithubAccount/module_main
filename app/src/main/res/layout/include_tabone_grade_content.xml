@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".page.TabOneFragment"
-    tools:showIn="@layout/fragment_tab_one">
+    tools:showIn="@layout/fragment_tab_in_explore_one">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_tabone_left"

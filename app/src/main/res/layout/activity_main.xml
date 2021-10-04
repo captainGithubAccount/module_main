@@ -26,6 +26,7 @@
 
     </data>
 
+<!--    -->
     <androidx.drawerlayout.widget.DrawerLayout
 
         android:id="@+id/drawerLayout"
@@ -105,6 +106,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+<!--   左侧导航抽屉部分     -->
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigationview"
 
@@ -113,10 +115,12 @@
             android:layout_gravity="start"
             android:background="@drawable/bgcolor_toolbar_and_bottom"
 
+
             app:headerLayout="@layout/header_navigation_drawer"
             app:menu="@menu/menu_bottom_navigation_view"
             app:navigationItemSelectedListener="@{navigationItemSelectedListener::onNavigationItemSelected}">
 
+<!--     导航抽屉中motion部分       -->
             <com.example.module_main.view.DrawerContent
                 android:id="@+id/motion_main_drawer_bottom"
                 android:layout_width="match_parent"
