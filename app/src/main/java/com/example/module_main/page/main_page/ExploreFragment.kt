@@ -1,4 +1,4 @@
-package com.example.module_main.page
+package com.example.module_main.page.main_page
 
 import android.app.Activity
 import android.content.Context

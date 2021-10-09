@@ -2,7 +2,7 @@ package com.example.module_main.page.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.module_main.page.*
+import com.example.module_main.page.tab_rest_page.*
 
 class Vp2RestAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = 6

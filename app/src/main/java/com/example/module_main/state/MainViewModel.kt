@@ -64,6 +64,7 @@ class MainViewModel: ViewModel() {
 
             Log.d("AA_TAG", p0?.id.toString())
             when(p0?.id){
+
 //            底部导航的item点击后跳转到对应的碎片
                 R.id.motion_include_rest -> _navController.navigate(R.id.restFragment)
                 R.id.motion_include_translate -> _navController.navigate(R.id.translateFragment)

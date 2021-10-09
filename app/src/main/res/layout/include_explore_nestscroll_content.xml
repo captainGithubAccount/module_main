@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,9 +9,12 @@
     android:scrollbarSize="2dp"
     android:scrollbarThumbVertical="@color/nestscrollbar"
     android:scrollbars="vertical"
-    tools:showIn="@layout/fragment_explore">
+    tools:showIn="@layout/fragment_explore"> -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -343,4 +347,4 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+<!-- </androidx.core.widget.NestedScrollView> -->

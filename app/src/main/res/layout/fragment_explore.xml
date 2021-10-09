@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import  type="com.example.module_main.page.adapter.Vp2ExploreAdapter"/>
+
+        <import type="com.example.module_main.page.adapter.Vp2ExploreAdapter" />
 
         <variable
             name="viewpager"
             type="Vp2ExploreAdapter" />
     </data>
 
-<!--  包括toolbar在内的整个碎片界面  -->
+    <!--  包括toolbar在内的整个碎片界面  -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--    被遮盖的backdrop部分    -->
+        <!--    被遮盖的backdrop部分    -->
         <LinearLayout
             android:id="@+id/linLay_fragments_in_navhost_backdrop"
             style="@style/Widget.Shrine.Backdrop"
@@ -26,31 +27,31 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingTop="72dp">
-<!--backdrop内的古诗和lottie部分-->
-            <include layout="@layout/include_backdrop_explore"
-                android:id="@+id/include_fragments_in_navhost_backdrop_lottie"/>
-
+            <!--backdrop内的古诗和lottie部分-->
+            <include
+                android:id="@+id/include_fragments_in_navhost_backdrop_lottie"
+                layout="@layout/include_backdrop_explore" />
 
 
         </LinearLayout>
 
-<!--AppBar/toolbar部分-->
+        <!--AppBar/toolbar部分-->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarLayout_fragments_in_navhost"
-            app:elevation="0dp"
+            style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
-            android:fitsSystemWindows="true">
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
 
             <com.google.android.material.appbar.MaterialToolbar
 
-                android:fitsSystemWindows="true"
                 android:id="@+id/toolbar_fragments_in_navhost"
                 style="@style/Widget.Shrine.Toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="82dp"
                 android:background="@drawable/bgcolor_toolbar_and_bottom"
+                android:fitsSystemWindows="true"
                 android:paddingStart="12dp"
 
                 android:paddingLeft="12dp"
@@ -58,81 +59,90 @@
                 android:paddingRight="12dp"
                 app:contentInsetStart="0dp"
                 app:layout_scrollFlags="scroll"
-                app:titleTextColor="@color/cardview_dark_background"
-                app:titleTextAppearance="@style/toolbar_testStyle"
                 app:navigationIcon="@drawable/ic_toolbar_menu"
                 app:title="发现"
-                app:titleCentered="true" />
+                app:titleCentered="true"
+                app:titleTextAppearance="@style/toolbar_testStyle"
+                app:titleTextColor="@color/cardview_dark_background" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <!-- Screen content -->
         <!-- Use app:layout_behavior="@string/appbar_scrolling_view_behavior" to fit below top app bar -->
 
-<!--   appbar下面的内容部分     -->
-        <FrameLayout
-            android:layout_marginTop="67dp"
+        <!--   appbar下面的内容部分     -->
+        <LinearLayout
+
+            android:orientation="vertical"
             android:id="@+id/nsv_fragments_in_navhost_content"
-            android:background="@drawable/shape_rest_nestedscrollview_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="67dp"
+            android:background="@drawable/shape_rest_nestedscrollview_background"
             android:elevation="8dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
 
-<!--explore碎片的tablayout部分-->
+
+                <!--explore碎片的tablayout部分-->
                 <com.google.android.material.tabs.TabLayout
 
-                    app:tabTextAppearance="@style/tabLayout_testStyle"
-                    app:tabSelectedTextColor="#00BCD4"
-                    android:background="#F1F1F1"
-                    android:layout_marginTop="34dp"
                     android:id="@+id/tabLay_replore_content_tab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    >
+                    android:layout_marginTop="34dp"
+                    android:background="#F1F1F1"
+                    app:tabSelectedTextColor="#00BCD4"
+                    app:tabTextAppearance="@style/tabLayout_testStyle">
 
 
                 </com.google.android.material.tabs.TabLayout>
 
-<!--        tab下的lottie部分        -->
-                <com.example.module_main.view.ViewPagerHeader
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="0dp"
-                    android:id="@+id/motionLayout_explore_lottie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    app:layoutDescription="@xml/scene_explore_viewpager_header">
+                <!--        tab下的lottie部分        -->
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                    <com.airbnb.lottie.LottieAnimationView
-
-                        android:padding="0dp"
-
-                        android:id="@+id/lottie_view_explore_content_viewpager_header"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:lottie_rawRes="@raw/lottie_explore_viewpager_header" />
+                        android:orientation="vertical">
 
-                </com.example.module_main.view.ViewPagerHeader>
+                        <com.example.module_main.view.ViewPagerHeader
+                            android:id="@+id/motionLayout_explore_lottie"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="0dp"
+                            app:layoutDescription="@xml/scene_explore_viewpager_header">
 
-<!--       tab关联的viewpager，在lottie下方         -->
-                <androidx.viewpager2.widget.ViewPager2
+                            <com.airbnb.lottie.LottieAnimationView
 
-                    android:id="@+id/vp2_explore_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                                android:id="@+id/lottie_view_explore_content_viewpager_header"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="0dp"
+                                app:lottie_rawRes="@raw/lottie_explore_viewpager_header" />
+
+                        </com.example.module_main.view.ViewPagerHeader>
+
+                        <!--       tab关联的viewpager，在lottie下方         -->
+                        <androidx.viewpager2.widget.ViewPager2
+
+                            android:id="@+id/vp2_explore_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
 
-                <include layout="@layout/include_explore_nestscroll_content" />
+                        <include layout="@layout/include_explore_nestscroll_content" />
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
 
 
             </LinearLayout>
 
-        </FrameLayout>
+
 
 
     </FrameLayout>

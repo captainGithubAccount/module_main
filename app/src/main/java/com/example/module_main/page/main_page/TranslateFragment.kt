@@ -1,4 +1,4 @@
-package com.example.module_main.page
+package com.example.module_main.page.main_page
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

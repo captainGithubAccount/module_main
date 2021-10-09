@@ -32,8 +32,11 @@
         <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.16203703703703703" />
         <entry key="app/src/main/res/layout/fragment_rest.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_tab_game.xml" value="0.23703703703703705" />
+        <entry key="app/src/main/res/layout/fragment_tab_healthy.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_tab_in_explore_one.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/fragment_tab_one.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_tap_in_rest_military.xml" value="0.15885416666666666" />
+        <entry key="app/src/main/res/layout/fragment_tap_in_rest_rest.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_tap_rest.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/fragment_translate.xml" value="0.16203703703703703" />
         <entry key="app/src/main/res/layout/header_navigation_drawer.xml" value="0.14583333333333334" />
@@ -57,6 +60,11 @@
         <entry key="app/src/main/res/layout/item_navigation_bottom_view_mine.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/item_rest_navigation_bottom_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_translate_navigation_bottom_view.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/listitem1_taps.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/listitem_tap_rest.xml" value="0.29814814814814816" />
+        <entry key="app/src/main/res/layout/listitem_tap_viewholder2.xml" value="0.18229166666666666" />
+        <entry key="app/src/main/res/layout/listitem_taps_viewhodel1.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/listitem_taps_viewholder2.xml" value="0.335" />
         <entry key="app/src/main/res/layout/main_bottom_navigation_view.xml" value="0.165" />
         <entry key="app/src/main/res/layout/nav_main_bottom.xml" value="0.17222222222222222" />
         <entry key="app/src/main/res/layout/test.xml" value="0.25" />

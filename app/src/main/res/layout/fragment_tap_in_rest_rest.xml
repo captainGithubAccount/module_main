@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.module_main.state.TapRestViewModel" />
+        <!--<variable
+            name="test"
+            type="com.example.module_main.state.TapRestViewModel.OnClickListenerTest" />-->
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_test"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="test"-->
+<!--            />-->
+        <androidx.recyclerview.widget.RecyclerView
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/rv_tap_rest_overview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:bind_listData="@{viewModel.news}"
+
+            tools:listitem="@layout/listitem_taps_viewholder1"
+            tools:itemCount="2"/>
+    </androidx.core.widget.NestedScrollView>
+</layout>

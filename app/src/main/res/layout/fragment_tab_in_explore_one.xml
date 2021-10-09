@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".page.TabOneFragment"
+        tools:context=".page.tab_explore_page.TabOneFragment"
         tools:showIn="@layout/fragment_tab_in_explore_one">
 
         <com.google.android.material.card.MaterialCardView

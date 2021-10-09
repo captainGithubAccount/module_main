@@ -1,4 +1,4 @@
-package com.example.module_main.page
+package com.example.module_main.page.tab_rest_page
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -21,7 +21,7 @@ class TabGameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab_game, container, false)
+        return inflater.inflate(R.layout.fragment_tab_in_rest_game, container, false)
     }
 
 }

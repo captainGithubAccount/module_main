@@ -2,9 +2,9 @@ package com.example.module_main.page.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.module_main.page.TabOneFragment
-import com.example.module_main.page.TabThreeFragment
-import com.example.module_main.page.TabTwoFragment
+import com.example.module_main.page.tab_explore_page.TabOneFragment
+import com.example.module_main.page.tab_explore_page.TabThreeFragment
+import com.example.module_main.page.tab_explore_page.TabTwoFragment
 
 class Vp2ExploreAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = 3
@@ -15,6 +15,7 @@ class Vp2ExploreAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
             1 -> TabTwoFragment()
             else -> TabThreeFragment()
         }
+    
 
 
 

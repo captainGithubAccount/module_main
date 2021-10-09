@@ -1,4 +1,4 @@
-package com.example.module_main.page
+package com.example.module_main.page.tab_rest_page
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.module_main.R
 
 
-class TabHealthyFragment : Fragment() {
+class TabMilitaryFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class TabHealthyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab_healthy, container, false)
+        return inflater.inflate(R.layout.fragment_tap_in_rest_military, container, false)
     }
 
 

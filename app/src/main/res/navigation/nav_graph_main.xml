@@ -9,26 +9,27 @@
 
     <fragment
         android:id="@+id/restFragment"
-        android:name="com.example.module_main.page.RestFragment"
+        android:name="com.example.module_main.page.main_page.RestFragment"
         android:label="RestFragment"
         tools:layout="@layout/fragment_rest">
         <action
+
             android:id="@+id/action_restFragment_to_translateFragment"
             app:destination="@id/translateFragment" />
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
-        android:name="com.example.module_main.page.ExploreFragment"
+        android:name="com.example.module_main.page.main_page.ExploreFragment"
         android:label="ExploreFragment"
         tools:layout="@layout/fragment_explore"/>
     <fragment
         android:id="@+id/translateFragment"
-        android:name="com.example.module_main.page.TranslateFragment"
+        android:name="com.example.module_main.page.main_page.TranslateFragment"
         android:label="TranslateFragment"
         tools:layout="@layout/fragment_translate"/>
     <fragment
         android:id="@+id/mineFragment"
-        android:name="com.example.module_main.page.MineFragment"
+        android:name="com.example.module_main.page.main_page.MineFragment"
         android:label="MineFragment"
         tools:layout="@layout/fragment_mine"/>
 </navigation>
