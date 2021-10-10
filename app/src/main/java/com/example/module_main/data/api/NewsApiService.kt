@@ -32,20 +32,20 @@ class NewsApiService {
         var jsonResponse: String? = null
         withContext(Dispatchers.IO) {
             val request: Request = Request.Builder()
-                .url("http://v.juhe.cn/toutiao/index?key=3f64601cc5c4b59a7a3abe727a200858&type=yule")
+                .url(requestUrl)
                 .build()
 
             try {
-                Log.d("TestResponse---", "开始执行请求。。。")
+                //Log.d("TestResponse---", "开始执行请求。。。")
                 jsonResponse = okHttpClient.newCall(request).execute().body?.string()
 
-                Log.d("TestResponse---", "执行请求完毕。。。")
+                /*Log.d("TestResponse---", "执行请求完毕。。。")
                 if(jsonResponse == null){
                     Log.d("TestResponse---", "null")
                 }else{
 
                     Log.d("TestResponse---", jsonResponse!!)
-                }
+                }*/
             } catch (e: Exception) {
                 Log.d("TestResponse---", e.message!!)
             }

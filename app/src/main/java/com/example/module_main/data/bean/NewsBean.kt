@@ -18,9 +18,9 @@ data class Data(
     val category: String,
     val date: String,
     val is_content: String,
-    val thumbnail_pic_s: String,
-    val thumbnail_pic_s02: String,
-    val thumbnail_pic_s03: String,
+    val thumbnail_pic_s: String?,
+    val thumbnail_pic_s02: String?,
+    val thumbnail_pic_s03: String?,
     val title: String,
     val uniquekey: String,
     val url: String

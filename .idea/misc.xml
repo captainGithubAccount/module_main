@@ -34,6 +34,7 @@
         <entry key="app/src/main/res/layout/fragment_tab_game.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/fragment_tab_healthy.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_tab_in_explore_one.xml" value="0.23703703703703705" />
+        <entry key="app/src/main/res/layout/fragment_tab_in_explore_three.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_tab_one.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_tap_in_rest_military.xml" value="0.15885416666666666" />
         <entry key="app/src/main/res/layout/fragment_tap_in_rest_rest.xml" value="0.165" />
@@ -64,7 +65,8 @@
         <entry key="app/src/main/res/layout/listitem_tap_rest.xml" value="0.29814814814814816" />
         <entry key="app/src/main/res/layout/listitem_tap_viewholder2.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/listitem_taps_viewhodel1.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/listitem_taps_viewholder2.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/listitem_taps_viewholder2.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/listitem_taps_viewholder3.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/main_bottom_navigation_view.xml" value="0.165" />
         <entry key="app/src/main/res/layout/nav_main_bottom.xml" value="0.17222222222222222" />
         <entry key="app/src/main/res/layout/test.xml" value="0.25" />

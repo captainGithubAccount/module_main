@@ -99,6 +99,11 @@ dependencies {
 
     //roundImageView
     implementation 'com.makeramen:roundedimageview:2.3.0'
+    //suport roundImageView with glide
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    // If you want to use the GPU Filters
+    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
+
 
     //Gson
 
