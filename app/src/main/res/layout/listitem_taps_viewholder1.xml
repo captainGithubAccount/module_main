@@ -7,14 +7,18 @@
         <variable
             name="news"
             type="com.example.module_main.data.bean.Data" />
+        <variable
+            name="listener"
+            type="com.example.module_main.event.fragment.RvTapsAdapterListener" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- 可以给cardView设置绑定事件（测试用的, 本项目中没有使用到）android:onClick="@{(view) -> listener.rvItemOnclick(view, news) }" -->
         <androidx.cardview.widget.CardView
-
+            android:onClick="@{(view) -> listener.rvItemOnclick(view, news) }"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginStart="8dp"

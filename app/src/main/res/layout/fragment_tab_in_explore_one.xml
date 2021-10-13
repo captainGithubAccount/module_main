@@ -1,211 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+        <variable
+            name="urlInfo"
+            type="com.example.module_main.data.bean.UrlInfoKt" />
+        <variable
+            name="tabOneFragmentListener"
+            type="com.example.module_main.event.fragment.TabOneFragmentListener" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".page.tab_explore_page.TabOneFragment"
-        tools:showIn="@layout/fragment_tab_in_explore_one">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_tabone_left"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            app:cardElevation="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cv_tabone_center"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0001">
-
-
-            <ImageView
-                android:id="@+id/iv_card_grade1"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="3dp"
-                android:src="@drawable/ic_tabone_grade1" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="3dp"
-                android:text="一年级"
-                android:textSize="20sp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_tabone_center"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            app:cardElevation="8dp"
-
-            app:layout_constraintEnd_toStartOf="@+id/cv_tabone_right"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cv_tabone_left"
-            app:layout_constraintTop_toTopOf="@+id/cv_tabone_left">
-
-            <ImageView
-                android:id="@+id/iv_card_grade2"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="3dp"
-                android:src="@drawable/ic_tabone_grade2" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="3dp"
-                android:text="二年级"
-                android:textSize="20sp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_tabone_right"
-
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            app:cardElevation="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cv_tabone_center"
-            app:layout_constraintTop_toTopOf="@+id/cv_tabone_center">
-
-            <ImageView
-                android:id="@+id/iv_card_grade3"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="3dp"
-                android:src="@drawable/ic_tabone_grade3" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="3dp"
-                android:text="三年级"
-                android:textSize="20sp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_tabone_left_low2"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="16dp"
-            app:cardElevation="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cv_tabone_center_low2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv_tabone_left"
-            app:layout_constraintVertical_bias="0.05">
-
-
-            <ImageView
-                android:id="@+id/iv_card_grade4"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="3dp"
-                android:src="@drawable/ic_tabone_grade4" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="3dp"
-                android:text="四年级"
-                android:textSize="20sp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_tabone_center_low2"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            app:cardElevation="8dp"
-
-            app:layout_constraintEnd_toStartOf="@+id/cv_tabone_right_low2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cv_tabone_left_low2"
-            app:layout_constraintTop_toTopOf="@+id/cv_tabone_left_low2">
-
-            <ImageView
-                android:id="@+id/iv_card_grade5"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="3dp"
-                android:src="@drawable/ic_tabone_grade5" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="3dp"
-                android:text="五年级"
-                android:textSize="20sp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_tabone_right_low2"
-
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            app:cardElevation="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cv_tabone_center_low2"
-            app:layout_constraintTop_toTopOf="@+id/cv_tabone_center_low2">
-
-            <ImageView
-                android:id="@+id/iv_card_grade6"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="3dp"
-                android:src="@drawable/ic_tabone_grade6" />
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="3dp"
-                android:text="六年级"
-                android:textSize="20sp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <View
-            android:id="@+id/divider"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="8dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cv_tabone_left_low2"
-            app:layout_constraintVertical_bias="0.05" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            tools:context=".page.tab_explore_page.TabOneFragment"
+            tools:showIn="@layout/fragment_tab_in_explore_one">
+
+            <com.google.android.material.card.MaterialCardView
+                android:onClick="@{(view) -> tabOneFragmentListener.classOnclickListener(urlInfo.URL_EXPLORE_ONE_GRADE)}"
+                android:id="@+id/cv_tabone_left"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                app:cardElevation="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cv_tabone_center"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0001">
 
 
+                <ImageView
+                    android:id="@+id/iv_card_grade1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/ic_tabone_grade1" />
 
-</LinearLayout>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="3dp"
+                    android:text="一年级"
+                    android:textSize="20sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_tabone_center"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                app:cardElevation="8dp"
+
+                app:layout_constraintEnd_toStartOf="@+id/cv_tabone_right"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cv_tabone_left"
+                app:layout_constraintTop_toTopOf="@+id/cv_tabone_left">
+
+                <ImageView
+                    android:id="@+id/iv_card_grade2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/ic_tabone_grade2" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="3dp"
+                    android:text="二年级"
+                    android:textSize="20sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_tabone_right"
+
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                app:cardElevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cv_tabone_center"
+                app:layout_constraintTop_toTopOf="@+id/cv_tabone_center">
+
+                <ImageView
+                    android:id="@+id/iv_card_grade3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/ic_tabone_grade3" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="3dp"
+                    android:text="三年级"
+                    android:textSize="20sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_tabone_left_low2"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                app:cardElevation="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cv_tabone_center_low2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cv_tabone_left"
+                app:layout_constraintVertical_bias="0.05">
+
+
+                <ImageView
+                    android:id="@+id/iv_card_grade4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/ic_tabone_grade4" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="3dp"
+                    android:text="四年级"
+                    android:textSize="20sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_tabone_center_low2"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                app:cardElevation="8dp"
+
+                app:layout_constraintEnd_toStartOf="@+id/cv_tabone_right_low2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cv_tabone_left_low2"
+                app:layout_constraintTop_toTopOf="@+id/cv_tabone_left_low2">
+
+                <ImageView
+                    android:id="@+id/iv_card_grade5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/ic_tabone_grade5" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="3dp"
+                    android:text="五年级"
+                    android:textSize="20sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_tabone_right_low2"
+
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                app:cardElevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cv_tabone_center_low2"
+                app:layout_constraintTop_toTopOf="@+id/cv_tabone_center_low2">
+
+                <ImageView
+                    android:id="@+id/iv_card_grade6"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/ic_tabone_grade6" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="3dp"
+                    android:text="六年级"
+                    android:textSize="20sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cv_tabone_left_low2"
+                app:layout_constraintVertical_bias="0.05" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+</layout>

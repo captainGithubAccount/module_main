@@ -1,18 +1,25 @@
 package com.example.module_main.data.bean
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+
+@Parcelize
 data class NewsBean(
     val error_code: Int,
     val reason: String,
     val result: Result
-)
+) : Parcelable
 
+@Parcelize
 data class Result(
     val `data`: List<Data>,
     val page: String,
     val pageSize: String,
     val stat: String
-)
+) : Parcelable
 
+@Parcelize
 data class Data(
     val author_name: String,
     val category: String,
@@ -24,4 +31,4 @@ data class Data(
     val title: String,
     val uniquekey: String,
     val url: String
-)
+) : Parcelable

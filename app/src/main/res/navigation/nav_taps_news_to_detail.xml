@@ -1,0 +1,26 @@
+<!--此导航图标只用来测试，demo未曾使用, 无实际意义-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_to_detail_tabs"
+    app:startDestination="@id/tabRestFragment">
+
+    <fragment
+        android:id="@+id/tabRestFragment"
+        android:name="com.example.module_main.page.tab_rest_page.TabRestFragment"
+        android:label="TabRestFragment"
+        tools:layout="@layout/fragment_tap_in_rest_rest">
+        <action
+            android:id="@+id/action_tabRestFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.example.module_main.page.navigate_direction_page.NewsDetailFragment"
+        android:label="fragment_news_detail"
+        tools:layout="@layout/fragment_news_detail" >
+        <argument
+            android:name="news"
+            app:argType="com.example.module_main.data.bean.Data" />
+    </fragment>
+</navigation>

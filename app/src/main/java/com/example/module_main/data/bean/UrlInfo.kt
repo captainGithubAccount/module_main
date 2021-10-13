@@ -13,6 +13,8 @@ const val URL_REST = "${BASE_URL_INFO}top"
 const val URL_SCIENCE = "${BASE_URL_INFO}keji"
 const val URL_SPORTS = "${BASE_URL_INFO}tiyu"
 
+const val URL_EXPLORE_ONE_GRADE = "first grade"
+
 
 
 

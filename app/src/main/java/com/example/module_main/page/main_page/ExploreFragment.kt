@@ -25,7 +25,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class ExploreFragment : Fragment() {
 
 
-    private val vp2ExploreAdapter: Vp2ExploreAdapter by lazy { Vp2ExploreAdapter(this) }
+    private val vp2ExploreAdapter: Vp2ExploreAdapter  get() =  Vp2ExploreAdapter(this)
 
 
 
@@ -48,6 +48,8 @@ class ExploreFragment : Fragment() {
     // This property is only valid between onCreateView and
 // onDestroyView.
     private val fragmentExploreBinding get() = _binding!!
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -182,6 +184,7 @@ class ExploreFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
+
 
 
 

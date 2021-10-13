@@ -6,6 +6,7 @@ import com.example.module_main.data.bean.Data
 import com.example.module_main.databinding.ListitemTapsViewholder1Binding
 import com.example.module_main.databinding.ListitemTapsViewholder2Binding
 import com.example.module_main.databinding.ListitemTapsViewholder3Binding
+import com.example.module_main.event.fragment.RvTapsAdapterListener
 
 const val TYPE_VIEWHOLDER_ONE_PICTURE: Int = 0
 const val TYPE_VIEWHOLDER_TWO_PICTURE: Int = 1
@@ -13,8 +14,9 @@ const val TYPE_VIEWHOLDER_THREE_PICTURE: Int = 2
 
 class OnePictureVh(val binding: ListitemTapsViewholder1Binding) : RecyclerView.ViewHolder(binding.root){
 
-    fun bind(data: Data){
+    fun bind(data: Data, listener: RvTapsAdapterListener){
         binding.news = data
+        binding.listener = listener
 
         //数据改变立即刷新界面
         binding.executePendingBindings()

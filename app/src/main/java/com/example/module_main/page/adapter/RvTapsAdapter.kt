@@ -3,6 +3,7 @@ package com.example.module_main.page.adapter
 import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.module_main.data.bean.Data
@@ -10,11 +11,16 @@ import com.example.module_main.data.bean.NewsBean
 import com.example.module_main.databinding.ListitemTapsViewholder1Binding
 import com.example.module_main.databinding.ListitemTapsViewholder2Binding
 import com.example.module_main.databinding.ListitemTapsViewholder3Binding
+import com.example.module_main.event.fragment.RvTapsAdapterListener
 import com.example.module_main.page.viewholder.*
 
-class RvTapRestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val datas: List<Data>
         get() = _datas!!
+
+
+
+
 
     override fun getItemViewType(position: Int): Int {
         val data = datas.get(position)
@@ -32,7 +38,8 @@ class RvTapRestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             return super.getItemViewType(position)
         }*/
 
-        if(data.thumbnail_pic_s.isNullOrEmpty() == false && data.thumbnail_pic_s02.isNullOrEmpty() == true && data.thumbnail_pic_s03.isNullOrEmpty() == true){
+
+       /* if(data.thumbnail_pic_s.isNullOrEmpty() == false && data.thumbnail_pic_s02.isNullOrEmpty() == true && data.thumbnail_pic_s03.isNullOrEmpty() == true){
             Log.d("ViewHolder",  "ViewHolder type  - 1")
             return TYPE_VIEWHOLDER_ONE_PICTURE
         }else if( data.thumbnail_pic_s02.isNullOrEmpty() == false && data.thumbnail_pic_s03.isNullOrEmpty() == true){
@@ -43,6 +50,16 @@ class RvTapRestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             return TYPE_VIEWHOLDER_THREE_PICTURE
         }else{
             Log.d("ViewHolder",  "ViewHolder type  - 1 else")
+            return super.getItemViewType(position)
+        }*/
+
+        if(data.thumbnail_pic_s != null && data.thumbnail_pic_s02 == null && data.thumbnail_pic_s03 == null){
+            return TYPE_VIEWHOLDER_ONE_PICTURE
+        }else if(data.thumbnail_pic_s != null && data.thumbnail_pic_s02 != null && data.thumbnail_pic_s03 == null){
+            return TYPE_VIEWHOLDER_TWO_PICTURE
+        }else if(data.thumbnail_pic_s != null && data.thumbnail_pic_s02 != null && data.thumbnail_pic_s03 != null){
+            return TYPE_VIEWHOLDER_THREE_PICTURE
+        }else{
             return super.getItemViewType(position)
         }
     }
@@ -94,7 +111,7 @@ class RvTapRestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
             is OnePictureVh ->
-                holder.bind(datas.get(position))
+                holder.bind(datas.get(position), listener)
             is TwoPictureVh ->
                 holder.bind(datas.get(position))
             is ThreePictureVh ->

@@ -13,15 +13,29 @@
         android:label="RestFragment"
         tools:layout="@layout/fragment_rest">
         <action
+            android:id="@+id/action_restFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
 
-            android:id="@+id/action_restFragment_to_translateFragment"
-            app:destination="@id/translateFragment" />
+            />
     </fragment>
+
     <fragment
         android:id="@+id/exploreFragment"
         android:name="com.example.module_main.page.main_page.ExploreFragment"
         android:label="ExploreFragment"
-        tools:layout="@layout/fragment_explore"/>
+        tools:layout="@layout/fragment_explore">
+        <action
+            android:id="@+id/action_exploreFragment_to_compositionFragment"
+            app:destination="@id/compositionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/translateFragment"
         android:name="com.example.module_main.page.main_page.TranslateFragment"
@@ -32,4 +46,28 @@
         android:name="com.example.module_main.page.main_page.MineFragment"
         android:label="MineFragment"
         tools:layout="@layout/fragment_mine"/>
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.example.module_main.page.navigate_direction_page.NewsDetailFragment"
+        android:label="fragment_news_detail"
+        tools:layout="@layout/fragment_news_detail" >
+        <argument
+            android:name="news"
+            app:argType="com.example.module_main.data.bean.Data" />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_restFragment"
+            app:destination="@id/restFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/compositionFragment"
+        android:name="com.example.module_main.page.navigate_direction_page.CompositionFragment"
+        android:label="fragment_composition"
+        tools:layout="@layout/fragment_composition" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_compositionFragment_to_exploreFragment2"
+            app:destination="@id/exploreFragment" />
+    </fragment>
 </navigation>

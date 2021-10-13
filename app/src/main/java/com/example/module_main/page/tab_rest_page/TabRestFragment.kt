@@ -7,28 +7,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import com.example.module_main.data.api.NewsApi
-import com.example.module_main.data.api.NewsApiService
 import com.example.module_main.data.bean.Data
-import com.example.module_main.data.bean.URL_REST
 import com.example.module_main.databinding.FragmentTapInRestRestBinding
-import com.example.module_main.page.adapter.RvTapRestAdapter
+import com.example.module_main.event.fragment.RvTapsAdapterListener
+import com.example.module_main.page.adapter.RvTapsAdapter
+import com.example.module_main.page.main_page.RestFragmentDirections
 import com.example.module_main.state.TapRestViewModel
 import com.example.module_main.state.TapRestViewModelFactory
-import java.net.URL
 
-class TabRestFragment : Fragment() {
+class TabRestFragment : Fragment(), RvTapsAdapterListener {
 
     private val viewModel: TapRestViewModel by viewModels { TapRestViewModelFactory(NewsApi.newsApiService) }
-    private val rvAdapter: RvTapRestAdapter by lazy { RvTapRestAdapter() }
+    private val rvAdapter: RvTapsAdapter by lazy { RvTapsAdapter(this) }
 
     private var _binding: FragmentTapInRestRestBinding? = null
     private val binding: FragmentTapInRestRestBinding
         get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("DDD", "Rest Tap Create")
+
+
+    //此方法用于测试使用databingding绑定事件传参跳转的，没有实际作用
+    override fun rvItemOnclick(viewRoot: View, news: Data?) {
+        if(news != null){
+            val actionRestFragmentToNewsDetailFragment: NavDirections =
+                RestFragmentDirections.actionRestFragmentToNewsDetailFragment(news)
+
+            this.findNavController().navigate(actionRestFragmentToNewsDetailFragment)
+        }
+
     }
 
 
@@ -74,6 +83,11 @@ class TabRestFragment : Fragment() {
         return binding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("DDD", "Rest Tap Create")
+    }
+
 
     override fun onStart() {
         super.onStart()
@@ -102,6 +116,8 @@ class TabRestFragment : Fragment() {
         Log.d("DDD", "Rest Tap Destroy")
         _binding = null
     }
+
+
 
 
 }

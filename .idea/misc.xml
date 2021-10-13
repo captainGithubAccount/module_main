@@ -28,11 +28,14 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.13055555555555556" />
+        <entry key="app/src/main/res/layout/fragment_composition.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.16203703703703703" />
+        <entry key="app/src/main/res/layout/fragment_news_detail.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_rest.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_tab_game.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/fragment_tab_healthy.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_tab_host_rest.xml" value="0.15885416666666666" />
         <entry key="app/src/main/res/layout/fragment_tab_in_explore_one.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/fragment_tab_in_explore_three.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_tab_one.xml" value="0.375" />

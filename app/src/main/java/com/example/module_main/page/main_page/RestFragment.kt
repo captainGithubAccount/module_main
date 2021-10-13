@@ -23,9 +23,8 @@ class RestFragment : Fragment() {
     private var flag = 1
     private var _activity: Activity? = null
 
-    private val _vp2RvRestAdapter: Vp2RestAdapter by lazy{
-        Vp2RestAdapter(this)
-    }
+    //注意这里不能使用懒加载创建adapter，因为jetpack默认导航会使得活动重建和销毁，这个时候adpter为null，无法重新获取
+    private val _vp2RvRestAdapter: Vp2RestAdapter get() = Vp2RestAdapter(this)
 
     private var _binding: FragmentRestBinding? = null
     override fun onAttach(context: Context) {
