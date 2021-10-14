@@ -3,6 +3,10 @@ package com.example.module_main.data.bean
 const val KEY= "3f64601cc5c4b59a7a3abe727a200858"
 const val BASE_URL_INFO = "http://v.juhe.cn/toutiao/index?key=${KEY}&type="
 
+const val KEY_COMPOSITION= "374823b7aec9f1207c1c85a3e04e0f73"
+//parameter: gradeId
+const val BASE_URL_INFO_COMPOSITION = "http://zuowen.api.juhe.cn/zuowen/baseList?key=${KEY_COMPOSITION}&gradeId=1"
+
 
 
 const val URL_GAME = "${BASE_URL_INFO}youxi"

@@ -8,12 +8,11 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="mainViewModel"
             type="com.example.module_main.state.MainViewModel" />
-        <variable
-            name="navigationOnclickListener"
-            type="com.example.module_main.state.MainViewModel.NavigationOnClickListener" />
+
         <variable
             name="navigationItemSelectedListener"
             type="com.example.module_main.state.MainViewModel.NavigationItemSelectedListener" />

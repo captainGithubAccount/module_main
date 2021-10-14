@@ -1,12 +1,13 @@
 package com.example.module_main
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.View
 import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-import android.view.Window
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -15,11 +16,14 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.module_main.databinding.ActivityMainBinding
 import com.example.module_main.state.MainViewModel
-import com.example.module_main.state.MainViewModelFactory
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+import com.example.module_main.state.MainViewModelFactory
 
 
 class MainActivity : AppCompatActivity() {
+    private var _binding: ActivityMainBinding? = null
+
+    private val binding : ActivityMainBinding get() = _binding!!
     private lateinit var _navController: NavController
 
     //val fragmentRestBinding = FragmentRestBinding.inflate(layoutInflater)
@@ -27,11 +31,6 @@ class MainActivity : AppCompatActivity() {
     val mainViewModel: MainViewModel by viewModels<MainViewModel> {
         MainViewModelFactory()
     }
-
-    /*override fun onStart() {
-        super.onStart()
-        _navController = findNavController(R.id.nav_main_host_fragment)
-    }*/
 
 
     protected fun setStatusBarFullTransparent() {
@@ -49,6 +48,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+    }
+
+
+    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
+        return super.onCreateView(name, context, attrs)
+
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,18 +66,11 @@ class MainActivity : AppCompatActivity() {
         setStatusBarFullTransparent()
 
 
-
-
-
-        val binding : ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
+        _binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //window?.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.window_bg))
 
         val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_main_host_fragment) as NavHostFragment
         _navController = navHostFragment.navController
-
-
-
         binding.mainViewModel = mainViewModel
         //val appBar = binding.topAppBar
 
@@ -76,14 +78,22 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
 
 
-//        顶部导航菜单图标的点击事件
-        binding.navigationOnclickListener = MainViewModel.NavigationOnClickListener(drawerLayout)
 
         //导航栏的item点击跳转页面的监听
         binding.navigationItemSelectedListener = MainViewModel.NavigationItemSelectedListener(_navController,drawerLayout, this, binding)
 
         //底部navigation的点击切换碎片的监听
         binding.motionLayoutOnClickListener = MainViewModel.MotionLayoutOnClickListener(binding, _navController)
+
+
+
+
+
+
+
+
+
+
 
 
         //让左侧划出的部分宽度为全屏
@@ -93,6 +103,8 @@ class MainActivity : AppCompatActivity() {
         }.let {
             binding.navigationview.layoutParams = it
         }
+
+
 
 
         //仿qq抽屉菜单拖动主屏幕跟随一起拖动效果监听
@@ -119,6 +131,8 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
+
 
 
 }

@@ -61,16 +61,16 @@ class MainViewModel: ViewModel() {
 
 
         fun onClick(p0: View?) {
+            //这里要先清空里面存在的栈，否则会出现A导航到B后点击回退箭，重新回到A而不是直接退出
+            _navController.popBackStack()
 
             Log.d("AA_TAG", p0?.id.toString())
             when(p0?.id){
-
 //            底部导航的item点击后跳转到对应的碎片
                 R.id.motion_include_rest -> _navController.navigate(R.id.restFragment)
                 R.id.motion_include_translate -> _navController.navigate(R.id.translateFragment)
                 R.id.motion_include_mine -> _navController.navigate(R.id.mineFragment)
                 else -> _navController.navigate(R.id.exploreFragment)
-
             }
 
             //给控制器添加监听,如当导航目的地是restFragment时候, 将其他三个motionLayout动画过程到0进度位置,可以防止多个motionLayout都到达motionLayout动画100进度位置
@@ -82,20 +82,21 @@ class MainViewModel: ViewModel() {
                     arguments: Bundle?
                 ) {
 
+
                     _binding.motionIncludeRest.motionLayoutMainRest.progress = 0f
                     _binding.motionIncludeExplore.motionLayoutMainExplore.progress = 0f
                     _binding.motionIncludeMine.motionLayoutMainMine.progress = 0f
                     _binding.motionIncludeTranslate.motionLayoutMainTranslate.progress = 0f
+                    //controller.popBackStack()注意不是controll而是传入进来的_navcontroll
                     when (destination.id) {
+
                         R.id.restFragment -> _binding.motionIncludeRest.motionLayoutMainRest.transitionToEnd()
                         R.id.exploreFragment -> _binding.motionIncludeExplore.motionLayoutMainExplore.transitionToEnd()
                         R.id.mineFragment -> _binding.motionIncludeMine.motionLayoutMainMine.transitionToEnd()
                         R.id.translateFragment -> _binding.motionIncludeTranslate.motionLayoutMainTranslate.transitionToEnd()
                     }
                 }
-
             })
-
         }
     }
 

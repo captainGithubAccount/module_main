@@ -18,6 +18,8 @@
 
         <!-- 可以给cardView设置绑定事件（测试用的, 本项目中没有使用到）android:onClick="@{(view) -> listener.rvItemOnclick(view, news) }" -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_listitem_tabs_viewholder1"
+            android:transitionName="@{@string/news_card_listitem_transition_name(news.uniquekey)}"
             android:onClick="@{(view) -> listener.rvItemOnclick(view, news) }"
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -26,7 +28,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">>
+            app:cardElevation="4dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -42,7 +44,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/placeholder_listitem" />
+                    app:srcCompat="@drawable/placeholder_tabs_listitem_news" />
 
                 <TextView
                     android:id="@+id/tv_listitem1_title"

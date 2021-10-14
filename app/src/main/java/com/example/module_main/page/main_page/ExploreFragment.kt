@@ -12,10 +12,12 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.airbnb.lottie.LottieDrawable
+import com.example.module_main.MainActivity
 import com.example.module_main.R
 import com.example.module_main.page.adapter.Vp2ExploreAdapter
 import com.example.module_main.databinding.FragmentExploreBinding
 import com.example.module_main.event.fragment.NavigationIconClickListener
+import com.example.module_main.state.MainViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 /*
@@ -47,7 +49,7 @@ class ExploreFragment : Fragment() {
 
     // This property is only valid between onCreateView and
 // onDestroyView.
-    private val fragmentExploreBinding get() = _binding!!
+    private val binding get() = _binding!!
 
 
 
@@ -56,7 +58,8 @@ class ExploreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentExploreBinding.inflate(inflater, container, false)
-        val view = fragmentExploreBinding.root
+        binding.navigationOnclickListener = MainViewModel.NavigationOnClickListener((_activity as MainActivity).findViewById(R.id.drawerLayout))
+        val view = binding.root
         return view
     }
 
@@ -69,7 +72,7 @@ class ExploreFragment : Fragment() {
 
 
         //对viewpager2控件进行设置
-        fragmentExploreBinding.vp2ExploreContent.let {
+        binding.vp2ExploreContent.let {
             it.adapter = vp2ExploreAdapter
             it.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
 
@@ -80,7 +83,7 @@ class ExploreFragment : Fragment() {
                 ) {
                     //滑动的距离等于viewpagerheader lottile动画的进度
                     var numPages = 3
-                    fragmentExploreBinding.lottieViewExploreContentViewpagerHeader.progress = (position + positionOffset) / (numPages - 1)
+                    binding.lottieViewExploreContentViewpagerHeader.progress = (position + positionOffset) / (numPages - 1)
 
                     super.onPageScrolled(position, positionOffset, positionOffsetPixels)
                 }
@@ -96,7 +99,7 @@ class ExploreFragment : Fragment() {
         }
 
 
-        TabLayoutMediator(fragmentExploreBinding.tabLayReploreContentTab, fragmentExploreBinding.vp2ExploreContent) { tab,position ->
+        TabLayoutMediator(binding.tabLayReploreContentTab, binding.vp2ExploreContent) { tab, position ->
 
             when (position) {
                 0 -> tab.text = "小学"
@@ -133,14 +136,14 @@ class ExploreFragment : Fragment() {
     //三个共有toolbar的模版监听代码
     private fun navhostFragmentsTemplateCode() {
         //加载toolbar上的菜单
-        fragmentExploreBinding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)
+        binding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)
 
 
         //菜单item点击监听
-        fragmentExploreBinding.toolbarFragmentsInNavhost.setOnMenuItemClickListener(object :
+        binding.toolbarFragmentsInNavhost.setOnMenuItemClickListener(object :
             NavigationIconClickListener(
                 _activity!!,
-                fragmentExploreBinding.nsvFragmentsInNavhostContent,
+                binding.nsvFragmentsInNavhostContent,
                 AccelerateDecelerateInterpolator(),
                 ContextCompat.getDrawable(
                     _activity!!,
@@ -159,13 +162,13 @@ class ExploreFragment : Fragment() {
                         flag++
                         if (flag % 2 == 0)
                         //Toast.makeText(_activity,"hi",Toast.LENGTH_SHORT).show()
-                            fragmentExploreBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.also {
+                            binding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.also {
                                 it.repeatCount = 10
                                 it.repeatMode = LottieDrawable.RESTART
                                 it.playAnimation()
                             }
                         else
-                            fragmentExploreBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.pauseAnimation()
+                            binding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.pauseAnimation()
 
                         true
                     }

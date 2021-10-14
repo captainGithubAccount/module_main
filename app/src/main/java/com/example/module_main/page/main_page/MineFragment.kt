@@ -11,9 +11,11 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieDrawable
+import com.example.module_main.MainActivity
 import com.example.module_main.R
 import com.example.module_main.databinding.FragmentMineBinding
 import com.example.module_main.event.fragment.NavigationIconClickListener
+import com.example.module_main.state.MainViewModel
 
 
 class MineFragment : Fragment() {
@@ -37,14 +39,16 @@ class MineFragment : Fragment() {
 
     // This property is only valid between onCreateView and
 // onDestroyView.
-    private val fragmentMineBinding get() = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMineBinding.inflate(inflater, container, false)
-        val view = fragmentMineBinding.root
+
+        binding.navigationOnclickListener = MainViewModel.NavigationOnClickListener((_activity as MainActivity).findViewById(R.id.drawerLayout))
+        val view = binding.root
         return view
     }
 
@@ -77,14 +81,14 @@ class MineFragment : Fragment() {
     //三个共有toolbar的模版监听代码
     private fun navhostFragmentsTemplateCode() {
         //加载toolbar上的菜单
-        fragmentMineBinding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)
+        binding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)
 
 
         //菜单item点击监听
-        fragmentMineBinding.toolbarFragmentsInNavhost.setOnMenuItemClickListener(object :
+        binding.toolbarFragmentsInNavhost.setOnMenuItemClickListener(object :
             NavigationIconClickListener(
                 _activity!!,
-                fragmentMineBinding.nsvFragmentsInNavhostContent,
+                binding.nsvFragmentsInNavhostContent,
                 AccelerateDecelerateInterpolator(),
                 ContextCompat.getDrawable(
                     _activity!!,
@@ -103,13 +107,13 @@ class MineFragment : Fragment() {
                         flag++
                         if (flag % 2 == 0)
                         //Toast.makeText(_activity,"hi",Toast.LENGTH_SHORT).show()
-                            fragmentMineBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.also {
+                            binding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.also {
                                 it.repeatCount = 10
                                 it.repeatMode = LottieDrawable.RESTART
                                 it.playAnimation()
                             }
                         else
-                            fragmentMineBinding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.pauseAnimation()
+                            binding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.pauseAnimation()
 
                         true
                     }

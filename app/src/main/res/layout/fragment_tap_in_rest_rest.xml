@@ -24,13 +24,15 @@
 <!--            />-->
         <androidx.recyclerview.widget.RecyclerView
 
+
+            android:transitionGroup="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:id="@+id/rv_tap_rest_overview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:bind_listData="@{viewModel.news}"
 
-            tools:listitem="@layout/listitem_taps_viewholder1"
+            tools:listitem="@layout/listitem_tabs_viewholder1"
             tools:itemCount="2"/>
     </androidx.core.widget.NestedScrollView>
 </layout>

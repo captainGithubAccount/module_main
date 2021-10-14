@@ -7,17 +7,32 @@
         <variable
             name="data"
             type="com.example.module_main.data.bean.Data" />
+        <variable
+            name="imgBackListener"
+            type="com.example.module_main.event.fragment.NewsDetailFragmentListener" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
+        android:transitionName="@string/news_card_detail_transition_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
+        android:orientation="vertical"
         tools:context=".page.navigate_direction_page.NewsDetailFragment">
+        <ImageView
+            android:onClick="@{(view) -> imgBackListener.icBackOnClickListener()}"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_detail_back"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.55"/>
 
         <WebView
+            android:layout_weight="9.5"
             app:bind_webviewUrl="@{data.url}"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+            android:layout_height="0dp" />
+    </LinearLayout>
 </layout>

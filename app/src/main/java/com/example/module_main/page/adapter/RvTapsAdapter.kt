@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.module_main.data.bean.Data
 import com.example.module_main.data.bean.NewsBean
-import com.example.module_main.databinding.ListitemTapsViewholder1Binding
-import com.example.module_main.databinding.ListitemTapsViewholder2Binding
-import com.example.module_main.databinding.ListitemTapsViewholder3Binding
+import com.example.module_main.databinding.ListitemTabsViewholder1Binding
+import com.example.module_main.databinding.ListitemTabsViewholder2Binding
+import com.example.module_main.databinding.ListitemTabsViewholder3Binding
+import com.example.module_main.databinding.ListitemTabsViewholder4LoadingBinding
 import com.example.module_main.event.fragment.RvTapsAdapterListener
 import com.example.module_main.page.viewholder.*
 
@@ -59,6 +60,8 @@ class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.
             return TYPE_VIEWHOLDER_TWO_PICTURE
         }else if(data.thumbnail_pic_s != null && data.thumbnail_pic_s02 != null && data.thumbnail_pic_s03 != null){
             return TYPE_VIEWHOLDER_THREE_PICTURE
+        }else if(data.thumbnail_pic_s == null && data.thumbnail_pic_s02 == null && data.thumbnail_pic_s03 == null){
+            return TYPE_VIEWHOLDER_LOADING
         }else{
             return super.getItemViewType(position)
         }
@@ -72,12 +75,12 @@ class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.
             "category",
             "data",
             "content",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "title",
-            "key",
-            "ddd"
+            null,
+            null,
+            null,
+            "",
+            "",
+            ""
         ))
 
         setData(list)
@@ -94,15 +97,16 @@ class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when(viewType){
             TYPE_VIEWHOLDER_ONE_PICTURE ->
-                return OnePictureVh(ListitemTapsViewholder1Binding.inflate(LayoutInflater.from(parent.context),parent,false))
+                return OnePictureVh(ListitemTabsViewholder1Binding.inflate(LayoutInflater.from(parent.context),parent,false))
 
             TYPE_VIEWHOLDER_TWO_PICTURE ->
-                return  TwoPictureVh(ListitemTapsViewholder2Binding.inflate(LayoutInflater.from(parent.context),parent,false))
+                return  TwoPictureVh(ListitemTabsViewholder2Binding.inflate(LayoutInflater.from(parent.context),parent,false))
             TYPE_VIEWHOLDER_THREE_PICTURE ->
-                return  ThreePictureVh(ListitemTapsViewholder3Binding.inflate(LayoutInflater.from(parent.context),parent,false))
-
+                return  ThreePictureVh(ListitemTabsViewholder3Binding.inflate(LayoutInflater.from(parent.context),parent,false))
+            TYPE_VIEWHOLDER_LOADING ->
+                return  FourLoadingVh(ListitemTabsViewholder4LoadingBinding.inflate(LayoutInflater.from(parent.context),parent,false))
             else ->
-                return OnePictureVh(ListitemTapsViewholder1Binding.inflate(LayoutInflater.from(parent.context),parent,false))
+                return OnePictureVh(ListitemTabsViewholder1Binding.inflate(LayoutInflater.from(parent.context),parent,false))
         }
 
 

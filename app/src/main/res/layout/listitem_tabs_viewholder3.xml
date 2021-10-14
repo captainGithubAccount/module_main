@@ -6,7 +6,7 @@
 
     <data>
         <variable
-            name="news2"
+            name="news3"
             type="com.example.module_main.data.bean.Data" />
 
     </data>
@@ -26,29 +26,39 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.makeramen.roundedimageview.RoundedImageView
-                app:riv_oval="false"
-                app:riv_corner_radius="8dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/placeholder_listitem"
-                app:bind_imgUrl="@{news2.thumbnail_pic_s}"
                 android:id="@+id/roundedImageView"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_margin="4dp"
-                android:layout_weight="1" />
+                android:layout_height="100dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/placeholder_tabs_listitem_news"
+                app:bind_imgUrl="@{news3.thumbnail_pic_s}"
+                app:riv_corner_radius_bottom_left="8dp"
+                app:riv_corner_radius_top_left="8dp"/>
 
             <com.makeramen.roundedimageview.RoundedImageView
-                app:riv_oval="false"
-                app:bind_imgUrl="@{news2.thumbnail_pic_s02}"
-                app:riv_corner_radius="8dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/placeholder_listitem"
+                android:layout_margin="1dp"
                 android:id="@+id/roundedImageView2"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_margin="4dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/placeholder_tabs_listitem_news"
+                app:bind_imgUrl="@{news3.thumbnail_pic_s02}"
+                />
 
-                android:layout_weight="1" />
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/roundedImageView3"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/placeholder_tabs_listitem_news"
+                app:bind_imgUrl="@{news3.thumbnail_pic_s03}"
+                app:riv_corner_radius_top_right="8dp"
+                app:riv_corner_radius_bottom_right="8dp"/>
 
         </LinearLayout>
 
@@ -59,8 +69,8 @@
             android:layout_margin="4dp"
             android:layout_marginStart="6dp"
             android:layout_weight="1"
-            android:text="@{news2.title}"
-            android:textSize="20dp"
+            android:text="@{news3.title}"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
@@ -68,7 +78,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{news2.author_name}"
+            android:text="@{news3.author_name}"
             app:layout_constraintBottom_toTopOf="@+id/divider3"
             app:layout_constraintEnd_toStartOf="@+id/textView9"
             app:layout_constraintHorizontal_bias="0.5"
@@ -81,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
 
-            android:text="@{news2.date}"
+            android:text="@{news3.date}"
             app:layout_constraintStart_toEndOf="@+id/textView8"
             app:layout_constraintTop_toTopOf="@+id/textView8" />
 

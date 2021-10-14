@@ -8,12 +8,17 @@
         <import type="com.example.module_main.page.adapter.Vp2ExploreAdapter" />
 
         <variable
+            name="navigationOnclickListener"
+            type="com.example.module_main.state.MainViewModel.NavigationOnClickListener" />
+
+        <variable
             name="viewpager"
             type="Vp2ExploreAdapter" />
     </data>
 
     <!--  包括toolbar在内的整个碎片界面  -->
     <FrameLayout
+        android:transitionGroup="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -46,6 +51,7 @@
 
             <com.google.android.material.appbar.MaterialToolbar
 
+                android:onClickListener="@{navigationOnclickListener::onClick}"
                 android:id="@+id/toolbar_fragments_in_navhost"
                 style="@style/Widget.Shrine.Toolbar"
                 android:layout_width="match_parent"

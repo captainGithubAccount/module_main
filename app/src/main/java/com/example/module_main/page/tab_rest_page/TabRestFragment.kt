@@ -6,9 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.example.module_main.R
 import com.example.module_main.data.api.NewsApi
 import com.example.module_main.data.bean.Data
 import com.example.module_main.databinding.FragmentTapInRestRestBinding
@@ -17,6 +22,7 @@ import com.example.module_main.page.adapter.RvTapsAdapter
 import com.example.module_main.page.main_page.RestFragmentDirections
 import com.example.module_main.state.TapRestViewModel
 import com.example.module_main.state.TapRestViewModelFactory
+import com.google.android.material.transition.MaterialElevationScale
 
 class TabRestFragment : Fragment(), RvTapsAdapterListener {
 
@@ -29,26 +35,27 @@ class TabRestFragment : Fragment(), RvTapsAdapterListener {
 
 
 
-    //此方法用于测试使用databingding绑定事件传参跳转的，没有实际作用
+    //listitem 点击跳转到新闻详情界面，跳转参数为列表item的数据
     override fun rvItemOnclick(viewRoot: View, news: Data?) {
         if(news != null){
+
+
+
+            val newsCardDetailTransitionName = getString(R.string.news_card_detail_transition_name)
+            val extras = FragmentNavigatorExtras(viewRoot to  newsCardDetailTransitionName)
             val actionRestFragmentToNewsDetailFragment: NavDirections =
                 RestFragmentDirections.actionRestFragmentToNewsDetailFragment(news)
-
-            this.findNavController().navigate(actionRestFragmentToNewsDetailFragment)
+            this.findNavController().navigate(actionRestFragmentToNewsDetailFragment, extras)
         }
-
     }
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        Log.d("DDD", "Rest Tap onCreateView")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentTapInRestRestBinding.inflate(inflater)
-        // Inflate the layout for this fragment
+        //注意要添加到跟布局的fragment，这里是Restfragment，而不是嵌套fragment
+        /*postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }*/
 
 
         binding.lifecycleOwner = this
@@ -77,12 +84,31 @@ class TabRestFragment : Fragment(), RvTapsAdapterListener {
         ))
 
         rvAdapter.setData(list)*/
+    }
 
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.d("DDD", "Rest Tap onCreateView")
 
+        _binding = FragmentTapInRestRestBinding.inflate(inflater)
+        // Inflate the layout for this fragment
         return binding.root
     }
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+
+        //防止跳转时候其他列表不见，注意也要放到根碎片布局
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("DDD", "Rest Tap Create")

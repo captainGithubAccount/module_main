@@ -4,4 +4,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="drawer_open">\"打开\"</string>
     <string name="drawer_close">关闭</string>
+
+<!--    fragment_tab_in_rest_rest -->
+    <!-- listitem_tabs_viewholder1 -->
+    <string name="news_card_listitem_transition_name">To %1$s</string>
+
+<!--    fragment_news_detail-->
+    <string name="news_card_detail_transition_name">news_card_detail</string>
 </resources>

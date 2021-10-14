@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="navigationOnclickListener"
+            type="com.example.module_main.state.MainViewModel.NavigationOnClickListener" />
 
     </data>
 
@@ -43,6 +46,7 @@
 
             <com.google.android.material.appbar.MaterialToolbar
 
+                android:onClickListener="@{navigationOnclickListener::onClick}"
                 app:titleTextAppearance="@style/toolbar_testStyle"
                 android:fitsSystemWindows="true"
                 android:id="@+id/toolbar_fragments_in_navhost"
