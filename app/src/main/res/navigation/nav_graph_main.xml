@@ -43,15 +43,18 @@
 
     <fragment
         android:id="@+id/compositionFragment"
-        android:name="com.example.module_main.page.navigate_direction_page.CompositionFragment"
+        android:name="com.example.module_main.page.navigate_direction_page.CompositionListFragment"
         android:label="fragment_composition"
-        tools:layout="@layout/fragment_composition" >
+        tools:layout="@layout/fragment_composition_list" >
         <argument
             android:name="url"
             app:argType="string" />
         <action
             android:id="@+id/action_compositionFragment_to_exploreFragment"
             app:destination="@id/exploreFragment" />
+        <action
+            android:id="@+id/action_compositionFragment_to_compositionContentFragment"
+            app:destination="@id/compositionContentFragment" />
     </fragment>
 
 
@@ -71,6 +74,20 @@
         <action
             android:id="@+id/action_newsDetailFragment_to_restFragment"
             app:destination="@id/restFragment" />
+    </fragment>
+
+
+    <fragment
+        tools:layout="@layout/fragment_composition_content"
+        android:id="@+id/compositionContentFragment"
+        android:name="com.example.module_main.page.navigate_direction_page.CompositionContentFragment"
+        android:label="CompositionContentFragment" >
+        <action
+            android:id="@+id/action_compositionContentFragment_to_compositionFragment"
+            app:destination="@id/compositionFragment" />
+        <argument
+            android:name="resultComposition"
+            app:argType="com.example.module_main.data.bean.ResultComposition" />
     </fragment>
 
 

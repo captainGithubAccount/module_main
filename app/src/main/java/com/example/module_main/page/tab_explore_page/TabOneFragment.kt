@@ -23,6 +23,7 @@ class TabOneFragment : Fragment(), TabOneFragmentListener {
 
     }
 
+    //点击跳转到作文列表页面
     override fun classOnclickListener(url: String) {
         val actionExploreFragmentToCompositionFragment: NavDirections =
             ExploreFragmentDirections.actionExploreFragmentToCompositionFragment(url)

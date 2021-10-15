@@ -5,9 +5,11 @@
 
     <data>
 
+
+
         <variable
             name="viewmodel"
-            type="com.example.module_main.state.CompositionViewModel" />
+            type="com.example.module_main.state.CompositionListViewModel" />
 
     </data>
 
@@ -16,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".page.navigate_direction_page.CompositionFragment">
+        tools:context=".page.navigate_direction_page.CompositionListFragment">
 
 
         <RelativeLayout
@@ -58,10 +60,12 @@
             android:layout_weight="8.5"
             android:scrollbarSize="2dp"
             android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@color/nestscrollbar"
             >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_composition"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:bind_listData_by_listadpter="@{viewmodel.compositionInfo}"

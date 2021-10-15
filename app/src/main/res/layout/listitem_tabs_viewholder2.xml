@@ -8,10 +8,15 @@
         <variable
             name="news2"
             type="com.example.module_main.data.bean.Data" />
+        <variable
+            name="listener"
+            type="com.example.module_main.event.fragment.RvTapsAdapterListener" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:transitionName="@{@string/news_card_listitem_transition_name(news2.uniquekey)}"
+        android:onClick="@{(view) -> listener.rvItemOnclick(view, news2) }"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

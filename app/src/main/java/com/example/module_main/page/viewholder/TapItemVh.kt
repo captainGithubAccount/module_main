@@ -24,8 +24,9 @@ class OnePictureVh(val binding: ListitemTabsViewholder1Binding) : RecyclerView.V
 }
 
 class TwoPictureVh(val binding: ListitemTabsViewholder2Binding): RecyclerView.ViewHolder(binding.root){
-    fun bind(data: Data){
+    fun bind(data: Data, listener: RvTapsAdapterListener){
         binding.news2 = data
+        binding.listener = listener
 
         //数据改变立即刷新界面
         binding.executePendingBindings()
@@ -33,8 +34,9 @@ class TwoPictureVh(val binding: ListitemTabsViewholder2Binding): RecyclerView.Vi
 }
 
 class ThreePictureVh(val binding: ListitemTabsViewholder3Binding): RecyclerView.ViewHolder(binding.root){
-    fun bind(data: Data){
+    fun bind(data: Data, listener: RvTapsAdapterListener){
         binding.news3 = data
+        binding.listener = listener
 
         //数据改变立即刷新界面
         binding.executePendingBindings()

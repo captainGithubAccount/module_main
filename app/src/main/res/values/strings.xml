@@ -11,4 +11,7 @@
 
 <!--    fragment_news_detail-->
     <string name="news_card_detail_transition_name">news_card_detail</string>
+
+<!--    listitem_position-->
+    <string name="composition_card_listitem_transition_name">To %1$s</string>
 </resources>

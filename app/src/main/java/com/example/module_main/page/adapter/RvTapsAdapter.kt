@@ -117,9 +117,9 @@ class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.
             is OnePictureVh ->
                 holder.bind(datas.get(position), listener)
             is TwoPictureVh ->
-                holder.bind(datas.get(position))
+                holder.bind(datas.get(position), listener)
             is ThreePictureVh ->
-                holder.bind(datas.get(position))
+                holder.bind(datas.get(position), listener)
         }
 
     }
