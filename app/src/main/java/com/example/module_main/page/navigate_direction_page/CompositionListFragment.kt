@@ -59,6 +59,7 @@ class CompositionListFragment : Fragment(), RvCompositionAdapterListener{
 
     override fun RvItemOnclick(cardView: View) {
 
+        //整个碎片的进出动画
         exitTransition = MaterialElevationScale(false).apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
         }

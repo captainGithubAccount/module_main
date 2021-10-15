@@ -85,6 +85,16 @@ class RestFragment : Fragment() {
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
 
+        //整个碎片的动画
+        //设置进出动画，避免列表跳转到详情页除了该列表其他部分白屏的情况
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
+
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
+
 
 
 
@@ -103,14 +113,7 @@ class RestFragment : Fragment() {
 
         }.attach()
 
-        //设置进出动画，避免列表跳转到详情页除了该列表其他部分白屏的情况
-        exitTransition = MaterialElevationScale(false).apply {
-            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
-        }
 
-        reenterTransition = MaterialElevationScale(true).apply {
-            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
-        }
 
     }
 

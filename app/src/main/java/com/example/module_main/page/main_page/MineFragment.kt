@@ -16,6 +16,7 @@ import com.example.module_main.R
 import com.example.module_main.databinding.FragmentMineBinding
 import com.example.module_main.event.fragment.NavigationIconClickListener
 import com.example.module_main.state.MainViewModel
+import com.google.android.material.transition.MaterialElevationScale
 
 
 class MineFragment : Fragment() {
@@ -54,6 +55,14 @@ class MineFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //整个碎片的进出动画
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
 
         navhostFragmentsTemplateCode()
 

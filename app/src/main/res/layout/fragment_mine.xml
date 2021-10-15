@@ -12,6 +12,7 @@
 
     <!--  包括toolbar在内的整个碎片界面  -->
     <FrameLayout
+        android:transitionGroup="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

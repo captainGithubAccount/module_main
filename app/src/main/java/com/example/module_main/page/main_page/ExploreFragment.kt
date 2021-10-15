@@ -19,6 +19,7 @@ import com.example.module_main.databinding.FragmentExploreBinding
 import com.example.module_main.event.fragment.NavigationIconClickListener
 import com.example.module_main.state.MainViewModel
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.transition.MaterialElevationScale
 
 /*
 *
@@ -66,6 +67,14 @@ class ExploreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navhostFragmentsTemplateCode()
+
+        //整个碎片的进出动画
+        exitTransition = MaterialElevationScale(false).apply {
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
+        reenterTransition = MaterialElevationScale(true).apply {
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
 
 
         //对tabLay文字大小设置
