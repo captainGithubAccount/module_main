@@ -64,6 +64,7 @@
             >
 
             <androidx.recyclerview.widget.RecyclerView
+                android:transitionGroup="true"
                 android:id="@+id/rv_composition"
 
                 android:layout_width="match_parent"

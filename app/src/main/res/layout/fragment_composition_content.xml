@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:transitionName="@string/position_detail_transition_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_compostion_content"

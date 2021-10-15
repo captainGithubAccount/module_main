@@ -14,4 +14,7 @@
 
 <!--    listitem_position-->
     <string name="composition_card_listitem_transition_name">To %1$s</string>
+
+<!--    fragment_composition_content-->
+    <string name="position_detail_transition_name">position_card_detail</string>
 </resources>

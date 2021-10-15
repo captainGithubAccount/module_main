@@ -51,9 +51,9 @@ class RvCompositionAdapter(private val rvCompositionAdapterListener: RvCompositi
         var pos = -1
 
         init {
-            binding.rvListitemLayoutRoot.setOnClickListener {
+            binding.cvListitemRoot.setOnClickListener {
                 selectIndex = pos
-                binding.rvCompositionAdapterListener?.RvItemOnclick()
+                binding.rvCompositionAdapterListener?.RvItemOnclick(it)
             }
         }
 
