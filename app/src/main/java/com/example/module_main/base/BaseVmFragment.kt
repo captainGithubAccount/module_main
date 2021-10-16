@@ -26,7 +26,13 @@ abstract class BaseVmFragment<VM: ViewModel>: Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mActivity = activity as AppCompatActivity
+        onFragmentAttach()
     }
+
+    /*
+    * 在fragment 贴附时执行的方法，其实就是onAttach()罢了，只不过我们想要原来的onAttach方法获取上下文对象罢了
+    * */
+    abstract fun onFragmentAttach()
 
     override fun onCreateView(
         inflater: LayoutInflater,

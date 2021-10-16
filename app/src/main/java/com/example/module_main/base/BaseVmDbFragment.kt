@@ -15,6 +15,7 @@ abstract class BaseVmDbFragment<VM: ViewModel, DB: ViewDataBinding>: BaseVmFragm
 
 
 
+
     //注意这里重写方法会直接覆盖BaseVmFragment，因此不用担心BaseVmFragme里onCreateView方法下实现的方法有影响
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,5 +30,23 @@ abstract class BaseVmDbFragment<VM: ViewModel, DB: ViewDataBinding>: BaseVmFragm
         }
         return lastView
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        onFragmentDestroy()
+        _binding = null
+    }
+
+    //- - - 注意以下两个方法除非是特殊需要否则直接覆盖后不执行操作即可!!!之所以把方法暴露出来是为了防止有特殊需求 ^.^
+
+    /*
+    * 在fragment销毁时执行的方法，其实就是onDestroy()罢了，只不过我们想要原来的onDestory()方法执行_binding = null操作而已
+    * */
+    abstract fun onFragmentDestroy()
+
+    /*
+    * 在fragment 贴附时执行的方法，其实就是onAttach()罢了，只不过我们想要原来的onAttach方法获取上下文对象罢了
+    * */
+    abstract override fun onFragmentAttach()
 
 }
