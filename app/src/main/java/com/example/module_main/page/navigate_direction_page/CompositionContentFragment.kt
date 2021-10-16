@@ -1,7 +1,6 @@
 package com.example.module_main.page.navigate_direction_page
 
 import android.graphics.Color
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,8 +10,7 @@ import android.view.ViewGroup
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.viewModels
 import com.example.module_main.R
-import com.example.module_main.data.api.NewsApi
-import com.example.module_main.data.bean.CompositionContent
+import com.example.module_main.data.api.Api
 import com.example.module_main.databinding.FragmentCompositionContentBinding
 import com.example.module_main.state.CompositionContentViewModel
 import com.example.module_main.state.CompositionContentViewModelFactory
@@ -24,7 +22,7 @@ class CompositionContentFragment : Fragment() {
     private var _binding: FragmentCompositionContentBinding? = null
     val binding: FragmentCompositionContentBinding get() = _binding!!
 
-    private val viewModel: CompositionContentViewModel by viewModels{ CompositionContentViewModelFactory("343811", NewsApi.newsApiService) }
+    private val viewModel: CompositionContentViewModel by viewModels{ CompositionContentViewModelFactory("343811", Api.API_SERVICE) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

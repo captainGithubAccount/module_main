@@ -69,12 +69,14 @@ class ExploreFragment : Fragment() {
         navhostFragmentsTemplateCode()
 
         //整个碎片的进出动画
-        exitTransition = MaterialElevationScale(false).apply {
+        //由于需要从tab 碎片中cv控件点击后跳转到作文列表的平移动画，所以需要取消该碎片的进出动画
+        /*exitTransition = MaterialElevationScale(false).apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
         }
         reenterTransition = MaterialElevationScale(true).apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
-        }
+        }*/
+
 
 
         //对tabLay文字大小设置

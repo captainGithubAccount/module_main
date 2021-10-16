@@ -15,7 +15,6 @@
     </data>
     <androidx.cardview.widget.CardView
         android:transitionName="@{@string/composition_card_listitem_transition_name(compositionInfo.time)+``+compositionInfo.id}"
-
         android:id="@+id/cv_listitem_root"
         android:layout_marginBottom="2dp"
         android:layout_marginStart="2dp"

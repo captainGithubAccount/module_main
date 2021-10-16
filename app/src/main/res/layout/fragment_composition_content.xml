@@ -2,14 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
             name="viewmodel"
             type="com.example.module_main.state.CompositionContentViewModel" />
 
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:transitionName="@string/position_detail_transition_name"
         android:layout_width="match_parent"
@@ -67,7 +65,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F1F1F1">
+                >
+               <!-- android:background="#F1F1F1"-->
 
                 <TextView
                     android:id="@+id/textView14"

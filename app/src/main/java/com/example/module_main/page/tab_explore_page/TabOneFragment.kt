@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
-import com.example.module_main.R
 import com.example.module_main.databinding.FragmentTabInExploreOneBinding
 import com.example.module_main.event.fragment.TabOneFragmentListener
 import com.example.module_main.page.main_page.ExploreFragmentDirections
@@ -24,9 +23,9 @@ class TabOneFragment : Fragment(), TabOneFragmentListener {
     }
 
     //点击跳转到作文列表页面
-    override fun classOnclickListener(url: String) {
+    override fun classOnclickListener(urlParameter: String, urlBase: String) {
         val actionExploreFragmentToCompositionFragment: NavDirections =
-            ExploreFragmentDirections.actionExploreFragmentToCompositionFragment(url)
+            ExploreFragmentDirections.actionExploreFragmentToCompositionFragment(urlParameter, urlBase)
         findNavController().navigate(actionExploreFragmentToCompositionFragment)
 
     }

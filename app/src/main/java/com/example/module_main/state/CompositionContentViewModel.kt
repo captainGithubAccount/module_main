@@ -8,13 +8,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.module_main.App
-import com.example.module_main.data.api.NewsApiService
+import com.example.module_main.data.api.ApiService
 import com.example.module_main.data.bean.BASE_URL_COMPOSITION_CONTENT
 import com.example.module_main.data.bean.CompositionContent
 import com.example.module_main.data.bean.CompositionInfo
 import kotlinx.coroutines.launch
 
-class CompositionContentViewModel(private val compositionContentUrlParameter: String, private val newsApiService: NewsApiService) : ViewModel() {
+class CompositionContentViewModel(private val compositionContentUrlParameter: String, private val apiService: ApiService) : ViewModel() {
     private var _compositionInfo: MutableLiveData<CompositionInfo> = MutableLiveData<CompositionInfo>()
     val compositionInfo: LiveData<CompositionInfo> get() = _compositionInfo
 
@@ -35,7 +35,7 @@ class CompositionContentViewModel(private val compositionContentUrlParameter: St
         val requestUrl: String = "${BASE_URL_COMPOSITION_CONTENT}${compositionContentUrlParameter}"
         viewModelScope.launch {
             val compositionContent: CompositionContent? =
-                newsApiService.sendRequestGetCompositionContent(requestUrl).result
+                apiService.sendRequestGetCompositionContent(requestUrl).result
             if(compositionContent != null){
                 _compositionContent.value =compositionContent!!
                 Log.d("DDD_URL_LAUNCH", _compositionContent.value.toString())

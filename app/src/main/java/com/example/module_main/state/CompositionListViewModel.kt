@@ -8,16 +8,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.module_main.App
-import com.example.module_main.data.api.NewsApi.newsApiService
-import com.example.module_main.data.api.NewsApiService
-import com.example.module_main.data.bean.BASE_URL_COMPOSITION_CONTENT
-import com.example.module_main.data.bean.BASE_URL_INFO_COMPOSITION
+import com.example.module_main.data.api.ApiService
 import com.example.module_main.data.bean.CompositionInfo
 import com.example.module_main.data.bean.ResultComposition
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeout
 
-class CompositionListViewModel(private val compositionParameter: String, private val newsApiService: NewsApiService): ViewModel() {
+class CompositionListViewModel(private val compositionParameter: String,private val compositionBaseUrl: String,private val apiService: ApiService): ViewModel() {
+    private var _grade: MutableLiveData<String> = MutableLiveData<String>()
+     val grade: LiveData<String> get() = _grade!!
+
     private var _compositionInfo: MutableLiveData<List<CompositionInfo>> = MutableLiveData<List<CompositionInfo>>()
     val compositionInfo: LiveData<List<CompositionInfo>> get() = _compositionInfo
 
@@ -25,6 +24,14 @@ class CompositionListViewModel(private val compositionParameter: String, private
     val compositionResult: LiveData<ResultComposition> get() = _compositionResult
 
     init{
+        when(compositionParameter){
+            "11" -> _grade.value = "一年级"
+            "12" -> _grade.value = "二年级"
+            "13" -> _grade.value = "三年级"
+            "14" -> _grade.value = "四年级"
+            "15" -> _grade.value = "五年级"
+            "16" -> _grade.value = "六年级"
+        }
 
         getComposition(compositionParameter)
         Log.d("DDD_URL_LIST_INITIAL", compositionInfo.value.toString())
@@ -34,10 +41,11 @@ class CompositionListViewModel(private val compositionParameter: String, private
 
     @WorkerThread
     fun getComposition(contentId: String){
-        val urlWithParameter: String = "${BASE_URL_INFO_COMPOSITION}${contentId}"
+        val urlWithParameter: String = "${compositionBaseUrl}${contentId}"
+        //val urlWithParameter: String = "${BASE_URL_INFO_COMPOSITION}${contentId}"
         Log.d("DDD_URL", urlWithParameter)
         viewModelScope.launch {
-            val result = newsApiService.sendRequestGetCompositions(urlWithParameter).result
+            val result = apiService.sendRequestGetCompositions(urlWithParameter).result
             if(result != null){
                 _compositionResult.value =result!!
                 Log.d("DDD_URL", _compositionResult.value.toString())

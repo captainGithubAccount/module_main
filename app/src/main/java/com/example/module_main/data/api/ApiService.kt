@@ -10,7 +10,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.lang.Exception
 
-class NewsApiService {
+class ApiService {
     val okHttpClient: OkHttpClient by lazy{OkHttpClient()}
     init {
         //Log.d("TestResponse---", "NewsApiService初始化了...")
