@@ -20,6 +20,8 @@ abstract class BaseVmFragment<VM: ViewModel>: Fragment() {
     lateinit var mActivity: AppCompatActivity
 
 
+    //这个属性用来是否处理 使用jetpack navigation组件导航后，fragment是否重新执行onCreateView方法，重新执行就要重新初始化，之前初始化的状态丢失
+    abstract var isHandleFragmentAgainOnCreateView: Boolean
 
     protected var isNavigationViewInit = false//记录是否已经初始化过一次视图
     protected var lastView: View? = null//记录上次创建的view
@@ -44,8 +46,15 @@ abstract class BaseVmFragment<VM: ViewModel>: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init(savedInstanceState)
-        isNavigationViewInit = true
+
+        if(isHandleFragmentAgainOnCreateView){
+            if(!isNavigationViewInit){
+                init(savedInstanceState)
+                isNavigationViewInit = true
+            }
+        }else{
+            init(savedInstanceState)
+        }
     }
 
 

@@ -1,27 +1,20 @@
 package com.example.module_main.page.tab_explore_page
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import com.example.module_main.R
+import com.example.module_main.base.BaseFragment
 import com.example.module_main.databinding.FragmentTabInExploreOneBinding
 import com.example.module_main.event.fragment.TabOneFragmentListener
 import com.example.module_main.page.main_page.ExploreFragmentDirections
 
 
-class TabOneFragment : Fragment(), TabOneFragmentListener {
-    private var _binding: FragmentTabInExploreOneBinding? = null
-    private val binding: FragmentTabInExploreOneBinding get() = _binding!!
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
+class TabOneFragment<noViewModel: ViewModel,DB: FragmentTabInExploreOneBinding> : BaseFragment<noViewModel,DB>(), TabOneFragmentListener {
     //点击跳转到作文列表页面
     override fun classOnclickListener(urlParameter: String, urlBase: String) {
         val actionExploreFragmentToCompositionFragment: NavDirections =
@@ -30,16 +23,27 @@ class TabOneFragment : Fragment(), TabOneFragmentListener {
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentTabInExploreOneBinding.inflate(inflater, container, false)
+    override var isHandleFragmentAgainOnCreateView: Boolean
+        get() = false
+        set(value) {}
 
-        binding.lifecycleOwner = this
-        binding.tabOneFragmentListener = this
-        // Inflate the layout for this fragment
-        return binding.root
+    override fun onFragmentDestroy() {
+    }
+
+    override fun onFragmentAttach() {
+    }
+
+    override fun layoutId(): Int = R.layout.fragment_tab_in_explore_one
+
+    override fun initBeforeBinding(savedInstanceState: Bundle?) {
+    }
+
+    override fun initBinding(savedInstanceState: Bundle?) {
+        mBinding.lifecycleOwner = this
+        mBinding.tabOneFragmentListener = this
+    }
+
+    override fun initAfterBinding(savedInstanceState: Bundle?) {
     }
 
 

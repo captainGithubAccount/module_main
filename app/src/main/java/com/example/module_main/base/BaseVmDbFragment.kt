@@ -13,7 +13,8 @@ abstract class BaseVmDbFragment<VM : ViewModel, DB : ViewDataBinding> : BaseVmFr
     private var _binding: DB? = null
     val mBinding: DB get() = _binding!!
 
-    abstract var isHandleFragmentAgainOnCreateView: Boolean
+    //这个属性用来是否处理 使用jetpack navigation组件导航后，fragment是否重新执行onCreateView方法，重新执行就要重新初始化，之前初始化的状态丢失
+    abstract override var isHandleFragmentAgainOnCreateView: Boolean
 
 
     //注意这里重写方法会直接覆盖BaseVmFragment，因此不用担心BaseVmFragme里onCreateView方法下实现的方法有影响
@@ -25,9 +26,9 @@ abstract class BaseVmDbFragment<VM : ViewModel, DB : ViewDataBinding> : BaseVmFr
         if (isHandleFragmentAgainOnCreateView) {
             //通过这种方式解决解决Android jetpack导航组件Navigation返回Fragment重走onCreateView方法刷新视图的问题
             if (lastView == null) {
-
                 _binding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
-                mBinding.lifecycleOwner = this
+                //mBinding.lifecycleOwner = this
+                // 因为这里和数据相关联着，所以这行一定要注释，否则会出现崩溃，这行正确做法应该放到onViewCreated()方法中!!!
                 lastView = mBinding.root
             }
             return lastView
