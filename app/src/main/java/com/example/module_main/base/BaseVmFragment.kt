@@ -19,6 +19,8 @@ abstract class BaseVmFragment<VM: ViewModel>: Fragment() {
     //这里的VM并没有实际意义，没有使用到,仅仅用于可观性，让人一眼就知道碎片所对应的viewmodel
     lateinit var mActivity: AppCompatActivity
 
+
+
     protected var isNavigationViewInit = false//记录是否已经初始化过一次视图
     protected var lastView: View? = null//记录上次创建的view
 

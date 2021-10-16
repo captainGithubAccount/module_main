@@ -9,11 +9,11 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 
 //自动注入viewmodel和databinding
-abstract class BaseVmDbFragment<VM: ViewModel, DB: ViewDataBinding>: BaseVmFragment<VM>(){
+abstract class BaseVmDbFragment<VM : ViewModel, DB : ViewDataBinding> : BaseVmFragment<VM>() {
     private var _binding: DB? = null
     val mBinding: DB get() = _binding!!
 
-
+    abstract var isHandleFragmentAgainOnCreateView: Boolean
 
 
     //注意这里重写方法会直接覆盖BaseVmFragment，因此不用担心BaseVmFragme里onCreateView方法下实现的方法有影响
@@ -22,14 +22,26 @@ abstract class BaseVmDbFragment<VM: ViewModel, DB: ViewDataBinding>: BaseVmFragm
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //通过这种方式解决解决Android jetpack导航组件Navigation返回Fragment重走onCreateView方法刷新视图的问题
+        if (isHandleFragmentAgainOnCreateView) {
+            //通过这种方式解决解决Android jetpack导航组件Navigation返回Fragment重走onCreateView方法刷新视图的问题
+            if (lastView == null) {
 
+                _binding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
+                mBinding.lifecycleOwner = this
+                lastView = mBinding.root
+            }
+            return lastView
+        } else {
             _binding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
             mBinding.lifecycleOwner = this
             lastView = mBinding.root
+            return lastView
+        }
 
-        return lastView
+
+
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

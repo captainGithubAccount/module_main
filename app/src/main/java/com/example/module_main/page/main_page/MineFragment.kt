@@ -22,7 +22,7 @@ import com.example.module_main.state.MainViewModel
 import com.google.android.material.transition.MaterialElevationScale
 
 
-open class MineFragment<noViewModel: ViewModel,binding: FragmentMineBinding> : BaseFragment<noViewModel, binding>(){
+ class MineFragment<noViewModel: ViewModel,binding: FragmentMineBinding> : BaseFragment<noViewModel, binding>(){
     private var mFlag = 1
     override fun onStart() {
         super.onStart()
@@ -57,4 +57,8 @@ open class MineFragment<noViewModel: ViewModel,binding: FragmentMineBinding> : B
 
     override fun onFragmentAttach() {
     }
-}
+
+     override var isHandleFragmentAgainOnCreateView: Boolean
+         get() = false
+         set(value) {}
+ }

@@ -101,5 +101,9 @@ class ExploreFragment<noViewModel: ViewModel, DB: FragmentExploreBinding> : Base
         }.attach()
     }
 
+    override var isHandleFragmentAgainOnCreateView: Boolean
+        get() = false
+        set(value) {}
+
 
 }

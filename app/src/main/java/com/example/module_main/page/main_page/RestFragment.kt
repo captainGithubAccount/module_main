@@ -78,5 +78,9 @@ class RestFragment<noViewModel: ViewModel, DB: FragmentRestBinding> : BaseFragme
         }.attach()
     }
 
+    override var isHandleFragmentAgainOnCreateView: Boolean
+        get() = false
+        set(value) {}
+
 
 }
