@@ -10,52 +10,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModel
 import com.airbnb.lottie.LottieDrawable
 import com.example.module_main.MainActivity
 import com.example.module_main.R
+import com.example.module_main.base.BaseFragment
+import com.example.module_main.base.navhostFragmentsTemplateCodeInMineFragment
 import com.example.module_main.databinding.FragmentMineBinding
 import com.example.module_main.event.fragment.NavigationIconClickListener
 import com.example.module_main.state.MainViewModel
 import com.google.android.material.transition.MaterialElevationScale
 
 
-class MineFragment : Fragment() {
-
-
-    private var flag = 1
-    private var _activity: Activity? = null
-
-    private var _binding: FragmentMineBinding? = null
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        _activity = activity
-
-    }
-
+open class MineFragment<noViewModel: ViewModel,binding: FragmentMineBinding> : BaseFragment<noViewModel, binding>(){
+    private var mFlag = 1
     override fun onStart() {
         super.onStart()
         setHasOptionsMenu(true)
     }
 
+    override fun layoutId(): Int = R.layout.fragment_mine
 
-    // This property is only valid between onCreateView and
-// onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentMineBinding.inflate(inflater, container, false)
-
-        binding.navigationOnclickListener = MainViewModel.NavigationOnClickListener((_activity as MainActivity).findViewById(R.id.drawerLayout))
-        val view = binding.root
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun initBeforeBinding(savedInstanceState: Bundle?) {
         //整个碎片的进出动画
         exitTransition = MaterialElevationScale(false).apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
@@ -64,84 +40,21 @@ class MineFragment : Fragment() {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
         }
 
-        navhostFragmentsTemplateCode()
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //三个共有toolbar的模版监听代码
-    private fun navhostFragmentsTemplateCode() {
-        //加载toolbar上的菜单
-        binding.toolbarFragmentsInNavhost.inflateMenu(R.menu.menu_rest_toobar)
-
-
-        //菜单item点击监听
-        binding.toolbarFragmentsInNavhost.setOnMenuItemClickListener(object :
-            NavigationIconClickListener(
-                _activity!!,
-                binding.nsvFragmentsInNavhostContent,
-                AccelerateDecelerateInterpolator(),
-                ContextCompat.getDrawable(
-                    _activity!!,
-                    R.drawable.ic_rest_menu_show_backdrop_end// Menu open icon
-                ),
-                ContextCompat.getDrawable(
-                    _activity!!,
-                    R.drawable.ic_rest_menu_show_backdrop_start// Menu close icon
-                )
-            ) {
-            override fun onMenuItemClick(p0: MenuItem?): Boolean {
-
-                when (p0?.itemId) {
-                    R.id.menuitem_rest_show_backdrop -> {
-
-                        flag++
-                        if (flag % 2 == 0)
-                        //Toast.makeText(_activity,"hi",Toast.LENGTH_SHORT).show()
-                            binding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.also {
-                                it.repeatCount = 10
-                                it.repeatMode = LottieDrawable.RESTART
-                                it.playAnimation()
-                            }
-                        else
-                            binding.includeFragmentsInNavhostBackdropLottie.lottileviewFragmentsInNavhostBackdropLottie.pauseAnimation()
-
-                        true
-                    }
-
-                    else -> false
-                }
-
-                return super.onMenuItemClick(p0)
-
-            }
-        })
+    override fun initBinding(savedInstanceState: Bundle?) {
+        navhostFragmentsTemplateCodeInMineFragment(mBinding, mActivity, mFlag)
+        mBinding.navigationOnclickListener = MainViewModel.NavigationOnClickListener((mActivity as MainActivity).findViewById(R.id.drawerLayout))
     }
 
+    override fun initAfterBinding(savedInstanceState: Bundle?) {
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 
+    override fun onFragmentDestroy() {
+    }
 
-
+    override fun onFragmentAttach() {
+    }
 }

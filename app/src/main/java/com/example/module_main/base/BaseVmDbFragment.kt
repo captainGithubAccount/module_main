@@ -23,11 +23,11 @@ abstract class BaseVmDbFragment<VM: ViewModel, DB: ViewDataBinding>: BaseVmFragm
         savedInstanceState: Bundle?
     ): View? {
         //通过这种方式解决解决Android jetpack导航组件Navigation返回Fragment重走onCreateView方法刷新视图的问题
-        if (lastView == null) {
+
             _binding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
             mBinding.lifecycleOwner = this
             lastView = mBinding.root
-        }
+
         return lastView
     }
 
