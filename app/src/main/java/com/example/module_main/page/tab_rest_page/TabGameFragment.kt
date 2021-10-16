@@ -2,7 +2,6 @@ package com.example.module_main.page.tab_rest_page
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.module_main.R
+import com.example.module_main.base.BaseFragment
 import com.example.module_main.data.api.Api
 import com.example.module_main.data.bean.Data
 import com.example.module_main.data.bean.URL_GAME
@@ -21,14 +21,12 @@ import com.example.module_main.page.main_page.RestFragmentDirections
 import com.example.module_main.state.TapRestViewModel
 import com.example.module_main.state.TapRestViewModelFactory
 
-
-class TabGameFragment : Fragment(), RvTapsAdapterListener {
-
+/*
+* RestFrg下的游戏列表页面
+* */
+class TabGameFragment<VM: TapRestViewModel, DB: FragmentTabInRestBinding> : BaseFragment<VM,DB>(), RvTapsAdapterListener {
     private val viewModel: TapRestViewModel by viewModels { TapRestViewModelFactory(URL_GAME,Api.API_SERVICE) }
     private val rvAdapter: RvTapsAdapter by lazy { RvTapsAdapter(this) }
-    private var _binding: FragmentTabInRestBinding? = null
-    private val binding: FragmentTabInRestBinding
-        get() = _binding!!
     //listitem 点击跳转到新闻详情界面，跳转参数为列表item的数据
     override fun rvItemOnclick(viewRoot: View, news: Data?) {
         if(news != null){
@@ -39,18 +37,24 @@ class TabGameFragment : Fragment(), RvTapsAdapterListener {
             this.findNavController().navigate(actionRestFragmentToNewsDetailFragment, extras)
         }
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override var isHandleFragmentAgainOnCreateView: Boolean = true
+
+    override fun layoutId(): Int = R.layout.fragment_tab_in_rest
+
+    override fun initBeforeBinding(savedInstanceState: Bundle?) {
         //注意要添加到跟布局的fragment，这里是Restfragment，而不是嵌套fragment
         /*postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }*/
-        binding.lifecycleOwner = this
+    }
+
+    override fun initBinding(savedInstanceState: Bundle?) {
+        mBinding.lifecycleOwner = this
         //viewmodel
-        binding.viewModel = viewModel
+        mBinding.viewModel = viewModel
 //        binding.btnTest.setOnClickListener{
 //            viewModel.getNews(URL_REST)
 //        }
-        binding.rvTapRestOverview.adapter = rvAdapter
+        mBinding.rvTapRestOverview.adapter = rvAdapter
         /*val list = ArrayList<Data>()
         list.add(Data(
             "name",
@@ -66,20 +70,11 @@ class TabGameFragment : Fragment(), RvTapsAdapterListener {
         ))
         rvAdapter.setData(list)*/
     }
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        Log.d("DDD", "Rest Tap onCreateView")
 
-        _binding = FragmentTabInRestBinding.inflate(inflater)
-        // Inflate the layout for this fragment
-        return binding.root
-    }
+    override fun initAfterBinding(savedInstanceState: Bundle?) {}
 
+    override fun onFragmentDestroy() {}
 
-
-
-
+    override fun onFragmentAttach() {}
 
 }

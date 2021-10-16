@@ -11,8 +11,10 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.module_main.R
+import com.example.module_main.base.BaseFragment
 import com.example.module_main.data.api.Api
 import com.example.module_main.data.bean.Data
+import com.example.module_main.data.bean.URL_MILITARY
 import com.example.module_main.data.bean.URL_REST
 import com.example.module_main.databinding.FragmentTabInRestBinding
 import com.example.module_main.event.fragment.RvTapsAdapterListener
@@ -20,13 +22,12 @@ import com.example.module_main.page.adapter.RvTapsAdapter
 import com.example.module_main.page.main_page.RestFragmentDirections
 import com.example.module_main.state.TapRestViewModel
 import com.example.module_main.state.TapRestViewModelFactory
-
-class TabRestFragment : Fragment(), RvTapsAdapterListener {
+/*
+* RestFrg下的娱乐列表页面
+* */
+class TabRestFragment<VM: TapRestViewModel, DB: FragmentTabInRestBinding> : BaseFragment<VM, DB>(), RvTapsAdapterListener {
     private val viewModel: TapRestViewModel by viewModels { TapRestViewModelFactory(URL_REST,Api.API_SERVICE) }
     private val rvAdapter: RvTapsAdapter by lazy { RvTapsAdapter(this) }
-    private var _binding: FragmentTabInRestBinding? = null
-    private val binding: FragmentTabInRestBinding
-        get() = _binding!!
     //listitem 点击跳转到新闻详情界面，跳转参数为列表item的数据
     override fun rvItemOnclick(viewRoot: View, news: Data?) {
         if(news != null){
@@ -37,80 +38,22 @@ class TabRestFragment : Fragment(), RvTapsAdapterListener {
             this.findNavController().navigate(actionRestFragmentToNewsDetailFragment, extras)
         }
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //注意要添加到跟布局的fragment，这里是Restfragment，而不是嵌套fragment
-        /*postponeEnterTransition()
-        view.doOnPreDraw { startPostponedEnterTransition() }*/
-        binding.lifecycleOwner = this
-        //viewmodel
-        binding.viewModel = viewModel
-//        binding.btnTest.setOnClickListener{
-//            viewModel.getNews(URL_REST)
-//        }
-        binding.rvTapRestOverview.adapter = rvAdapter
-        /*val list = ArrayList<Data>()
-        list.add(Data(
-            "name",
-            "category",
-            "data",
-            "content",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "title",
-            "key",
-            "ddd"
-        ))
-        rvAdapter.setData(list)*/
-    }
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        Log.d("DDD", "Rest Tap onCreateView")
+    override var isHandleFragmentAgainOnCreateView: Boolean = true
 
-        _binding = FragmentTabInRestBinding.inflate(inflater)
-        // Inflate the layout for this fragment
-        return binding.root
+    override fun layoutId(): Int = R.layout.fragment_tab_in_rest
+
+    override fun initBeforeBinding(savedInstanceState: Bundle?) {}
+
+    override fun initBinding(savedInstanceState: Bundle?) {
+        mBinding.lifecycleOwner = this
+        mBinding.viewModel = viewModel
+        mBinding.rvTapRestOverview.adapter = rvAdapter
     }
 
+    override fun initAfterBinding(savedInstanceState: Bundle?) {}
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("DDD", "Rest Tap Create")
-    }
+    override fun onFragmentDestroy() {}
 
-
-    override fun onStart() {
-        super.onStart()
-
-        Log.d("DDD", "Rest Tap Start")
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        Log.d("DDD", "Rest Tap Resume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("DDD", "Rest Tap Pause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("DDD", "Rest Tap Stop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("DDD", "Rest Tap Destroy")
-        _binding = null
-    }
-
-
-
+    override fun onFragmentAttach() {}
 
 }

@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import com.example.module_main.R
 import com.google.android.material.transition.MaterialElevationScale
 
-
+/*
+* MainAty下的翻译页面
+* */
 class TranslateFragment : Fragment() {
 
 

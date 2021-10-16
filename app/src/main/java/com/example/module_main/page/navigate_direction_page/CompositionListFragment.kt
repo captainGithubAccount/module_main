@@ -19,7 +19,10 @@ import com.example.module_main.page.adapter.RvCompositionAdapter
 import com.example.module_main.state.CompositionListViewModel
 import com.example.module_main.state.CompositionListViewModelFactory
 import com.google.android.material.transition.MaterialElevationScale
-class CompositionListFragment<compositionListViewModel:CompositionListViewModel, DB: FragmentCompositionListBinding> : BaseFragment<compositionListViewModel, DB>(), RvCompositionAdapterListener{
+/*
+* ExploreFrg下的作文列表展示页面
+* */
+class CompositionListFragment<VM:CompositionListViewModel, DB: FragmentCompositionListBinding> : BaseFragment<VM, DB>(), RvCompositionAdapterListener{
 
     private val viewmodel: CompositionListViewModel by viewModels { CompositionListViewModelFactory(args.urlGradeParameter, args.urlBase, Api.API_SERVICE) }
     private val adapter get() = RvCompositionAdapter(this)
@@ -42,15 +45,11 @@ class CompositionListFragment<compositionListViewModel:CompositionListViewModel,
         findNavController().navigate(actionCompositionFragmentToCompositionContentFragment, extras)
     }
 
-    override var isHandleFragmentAgainOnCreateView: Boolean
-        get() = true
-        set(value) {}
+    override var isHandleFragmentAgainOnCreateView: Boolean = true
 
-    override fun onFragmentDestroy() {
-    }
+    override fun onFragmentDestroy() {}
 
-    override fun onFragmentAttach() {
-    }
+    override fun onFragmentAttach() {}
 
     override fun layoutId(): Int = R.layout.fragment_composition_list
 
@@ -72,16 +71,10 @@ class CompositionListFragment<compositionListViewModel:CompositionListViewModel,
         mBinding.rvComposition.adapter = adapter
     }
 
-    override fun initAfterBinding(savedInstanceState: Bundle?) {
-    }
-
-
+    override fun initAfterBinding(savedInstanceState: Bundle?) {}
     //通过接口回掉拿到对应的item下标
-/*override fun setPosition(position: Int) {
+    /*override fun setPosition(position: Int) {
         adapter.selectIndex = position
         RvItemOnclick()
     }*/
-
-
-
 }

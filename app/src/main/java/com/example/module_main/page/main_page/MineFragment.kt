@@ -20,9 +20,10 @@ import com.example.module_main.databinding.FragmentMineBinding
 import com.example.module_main.event.fragment.NavigationIconClickListener
 import com.example.module_main.state.MainViewModel
 import com.google.android.material.transition.MaterialElevationScale
-
-
- class MineFragment<noViewModel: ViewModel,binding: FragmentMineBinding> : BaseFragment<noViewModel, binding>(){
+/*
+* MainAty下的我的页面
+* */
+ class MineFragment<noUseVM: ViewModel,binding: FragmentMineBinding> : BaseFragment<noUseVM, binding>(){
     private var mFlag = 1
     override fun onStart() {
         super.onStart()
@@ -40,7 +41,6 @@ import com.google.android.material.transition.MaterialElevationScale
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
         }
 
-
     }
 
     override fun initBinding(savedInstanceState: Bundle?) {
@@ -48,17 +48,12 @@ import com.google.android.material.transition.MaterialElevationScale
         mBinding.navigationOnclickListener = MainViewModel.NavigationOnClickListener((mActivity as MainActivity).findViewById(R.id.drawerLayout))
     }
 
-    override fun initAfterBinding(savedInstanceState: Bundle?) {
+    override fun initAfterBinding(savedInstanceState: Bundle?) {}
 
-    }
+    override fun onFragmentDestroy() {}
 
-    override fun onFragmentDestroy() {
-    }
+    override fun onFragmentAttach() {}
 
-    override fun onFragmentAttach() {
-    }
+     override var isHandleFragmentAgainOnCreateView: Boolean = false
 
-     override var isHandleFragmentAgainOnCreateView: Boolean
-         get() = false
-         set(value) {}
  }

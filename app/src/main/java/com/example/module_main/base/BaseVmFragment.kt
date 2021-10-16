@@ -1,6 +1,5 @@
 package com.example.module_main.base
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.createViewModelLazy
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.example.module_main.state.CompositionListViewModel
 
 //虽然没法注入viewmodel但是可以使写法一眼知道碎片对应的ViewModel是什么
 abstract class BaseVmFragment<VM: ViewModel>: Fragment() {

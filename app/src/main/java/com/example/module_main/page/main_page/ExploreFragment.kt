@@ -19,12 +19,10 @@ import com.example.module_main.databinding.FragmentExploreBinding
 import com.example.module_main.event.fragment.NavigationIconClickListener
 import com.example.module_main.state.MainViewModel
 import com.google.android.material.tabs.TabLayoutMediator
-
 /*
-*
+* MainAty下的作文页面
 * */
-
-class ExploreFragment<noViewModel: ViewModel, DB: FragmentExploreBinding> : BaseFragment<noViewModel,DB>() {
+class ExploreFragment<noUseVM: ViewModel, DB: FragmentExploreBinding> : BaseFragment<noUseVM,DB>() {
     private var flag = 1
     private val vp2ExploreAdapter: Vp2ExploreAdapter  get() =  Vp2ExploreAdapter(this)
     override fun onStart() {
@@ -32,16 +30,9 @@ class ExploreFragment<noViewModel: ViewModel, DB: FragmentExploreBinding> : Base
         setHasOptionsMenu(true)
     }
 
-    override fun onFragmentDestroy() {
-    }
-
-    override fun onFragmentAttach() {
-    }
-
     override fun layoutId(): Int = R.layout.fragment_explore
 
-    override fun initBeforeBinding(savedInstanceState: Bundle?) {
-    }
+    override fun initBeforeBinding(savedInstanceState: Bundle?) {}
 
     override fun initBinding(savedInstanceState: Bundle?) {
         mBinding.navigationOnclickListener = MainViewModel.NavigationOnClickListener((mActivity as MainActivity).findViewById(R.id.drawerLayout))
@@ -55,11 +46,6 @@ class ExploreFragment<noViewModel: ViewModel, DB: FragmentExploreBinding> : Base
         reenterTransition = MaterialElevationScale(true).apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
         }*/
-
-
-
-        //对tabLay文字大小设置
-
 
         //对viewpager2控件进行设置
         mBinding.vp2ExploreContent.let {
@@ -101,9 +87,10 @@ class ExploreFragment<noViewModel: ViewModel, DB: FragmentExploreBinding> : Base
         }.attach()
     }
 
-    override var isHandleFragmentAgainOnCreateView: Boolean
-        get() = false
-        set(value) {}
+    override var isHandleFragmentAgainOnCreateView: Boolean = false
 
+    override fun onFragmentDestroy() {}
+
+    override fun onFragmentAttach() {}
 
 }

@@ -23,28 +23,20 @@ class TabOneFragment<noViewModel: ViewModel,DB: FragmentTabInExploreOneBinding> 
 
     }
 
-    override var isHandleFragmentAgainOnCreateView: Boolean
-        get() = false
-        set(value) {}
+    override var isHandleFragmentAgainOnCreateView: Boolean = false
 
-    override fun onFragmentDestroy() {
-    }
+    override fun onFragmentDestroy() {}
 
-    override fun onFragmentAttach() {
-    }
+    override fun onFragmentAttach() {}
 
     override fun layoutId(): Int = R.layout.fragment_tab_in_explore_one
 
-    override fun initBeforeBinding(savedInstanceState: Bundle?) {
-    }
+    override fun initBeforeBinding(savedInstanceState: Bundle?) {}
 
     override fun initBinding(savedInstanceState: Bundle?) {
         mBinding.lifecycleOwner = this
         mBinding.tabOneFragmentListener = this
     }
 
-    override fun initAfterBinding(savedInstanceState: Bundle?) {
-    }
-
-
+    override fun initAfterBinding(savedInstanceState: Bundle?) {}
 }

@@ -19,18 +19,13 @@ import com.example.module_main.page.adapter.Vp2RestAdapter
 import com.example.module_main.state.MainViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.MaterialElevationScale
-
-
-class RestFragment<noViewModel: ViewModel, DB: FragmentRestBinding> : BaseFragment<noViewModel, DB>() {
+/*
+* MainAty下的新闻页面
+* */
+class RestFragment<noUseVM: ViewModel, DB: FragmentRestBinding> : BaseFragment<noUseVM, DB>() {
     private var flag = 1
     //注意这里不能使用懒加载创建adapter，因为jetpack默认导航会使得活动重建和销毁，这个时候adpter为null，无法重新获取
     private val _vp2RvRestAdapter: Vp2RestAdapter get() = Vp2RestAdapter(this)
-
-    override fun onFragmentDestroy() {
-    }
-
-    override fun onFragmentAttach() {
-    }
 
     override fun layoutId(): Int = R.layout.fragment_rest
 
@@ -78,9 +73,10 @@ class RestFragment<noViewModel: ViewModel, DB: FragmentRestBinding> : BaseFragme
         }.attach()
     }
 
-    override var isHandleFragmentAgainOnCreateView: Boolean
-        get() = false
-        set(value) {}
+    override var isHandleFragmentAgainOnCreateView: Boolean = false
 
+    override fun onFragmentDestroy() {}
+
+    override fun onFragmentAttach() {}
 
 }

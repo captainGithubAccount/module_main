@@ -17,6 +17,9 @@ const val FRAGMENT_EXPLORE_BINDING: Int = 3
 const val FRAGMENT_TRANSLATE_BINDING: Int = 2
 const val FRAGMENT_REST_BINDING: Int = 1
 
+/*
+* ExploreFragment
+* */
 //三个共有toolbar的模版监听代码
 fun navhostFragmentsTemplateCodeInExploreFragment(mBinding: FragmentExploreBinding, mActivity: Activity, judeFlag: Int) {
     var flag = judeFlag
