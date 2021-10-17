@@ -11,10 +11,21 @@
     android:scrollbars="vertical"
     tools:showIn="@layout/fragment_explore"> -->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="urlInfo"
+            type="com.example.module_main.data.bean.UrlInfoKt" />
+
+        <variable
+            name="classOnclickListener"
+            type="com.example.module_main.event.fragment.CompositionThemeListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -28,7 +39,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-<!--   表：第一行     -->
+        <!--   表：第一行     -->
         <com.google.android.material.card.MaterialCardView
 
             android:id="@+id/materialCardView"
@@ -42,8 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:layout_marginLeft="8dp"
+            <com.makeramen.roundedimageview.RoundedImageView android:layout_marginLeft="8dp"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
 
                 android:layout_gravity="center_vertical"
@@ -55,10 +65,10 @@
 
                 app:riv_oval="false"
                 android:layout_width="120dp"
-                android:layout_height="100dp"/>
+                android:layout_height="100dp" />
 
 
-<!--      tl1      -->
+            <!--      tl1      -->
             <TableLayout
                 android:layout_marginRight="10dp"
                 android:layout_width="200dp"
@@ -83,27 +93,35 @@
                     tools:layout_marginBottom="8dp" />
 
 
-                <TableRow >
+                <TableRow>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_YUYAN, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:text="寓言" />
 
                     <TextView
                         android:id="@+id/textView7"
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_TONGHUA, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:text="童话" />
 
                     <TextView
                         android:id="@+id/textView6"
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_YOUJI, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="游记" />
 
                     <TextView
                         android:id="@+id/textView5"
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_RIJI, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="日记" />
@@ -113,20 +131,29 @@
                 <TableRow>
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_XIAOSHUO, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="小说" />
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_SHUXING, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="书信" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_XIANGXIANG, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="想象" />
+
                     <TextView
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_OTHERS, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="其他" />
@@ -138,7 +165,7 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-<!--   表:第二行     -->
+        <!--   表:第二行     -->
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView2"
@@ -153,8 +180,7 @@
             app:layout_constraintTop_toBottomOf="@+id/materialCardView">
 
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:layout_marginLeft="8dp"
+            <com.makeramen.roundedimageview.RoundedImageView android:layout_marginLeft="8dp"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
 
                 android:layout_gravity="center_vertical"
@@ -167,9 +193,9 @@
 
                 app:riv_oval="false"
                 android:layout_width="120dp"
-                android:layout_height="100dp"/>
+                android:layout_height="100dp" />
 
-<!--      tl2      -->
+            <!--      tl2      -->
             <TableLayout
                 android:layout_marginRight="10dp"
                 android:layout_width="200dp"
@@ -196,22 +222,30 @@
                 <TableRow>
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_XIEJING, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="写景" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_KANTU, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="看图" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_SHIGE, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="诗歌" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_SANWEN, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="散文" />
                 </TableRow>
@@ -220,21 +254,30 @@
                 <TableRow>
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_ZHUANGWU, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="壮物" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_XUSHI, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="叙事" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_XIEREN, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="写人" />
+
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_OTHERS, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="其他" />
 
@@ -258,8 +301,7 @@
             app:layout_constraintTop_toBottomOf="@id/materialCardView2">
 
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:layout_marginLeft="8dp"
+            <com.makeramen.roundedimageview.RoundedImageView android:layout_marginLeft="8dp"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
 
                 android:layout_gravity="center_vertical"
@@ -271,9 +313,9 @@
 
                 app:riv_oval="false"
                 android:layout_width="120dp"
-                android:layout_height="100dp"/>
+                android:layout_height="100dp" />
 
-<!--      tl3      -->
+            <!--      tl3      -->
             <TableLayout
                 android:layout_marginRight="10dp"
                 android:layout_width="200dp"
@@ -300,22 +342,30 @@
                 <TableRow>
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_YINGYONGWEN, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="应用文" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_YILUNWEN, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="议论文" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_DUHOUGAN, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="读后感" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_SHUO_MING_WEN, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="说明文" />
                 </TableRow>
@@ -324,18 +374,24 @@
                 <TableRow>
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_YANJIANGGAO, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:text="演讲稿" />
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_HUATI, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="话题" />
 
 
                     <TextView
+                        android:background="?attr/selectableItemBackground"
                         android:layout_width="wrap_content"
+                        android:onClick="@{view -> classOnclickListener.classOnclickListener(urlInfo.URL_OTHERS, urlInfo.BASE_URL_INFO_COMPOSITION_THEME)}"
                         android:layout_height="wrap_content"
                         android:text="其他" />
 
@@ -347,4 +403,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 <!-- </androidx.core.widget.NestedScrollView> -->

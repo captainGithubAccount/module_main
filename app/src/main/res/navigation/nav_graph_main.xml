@@ -89,8 +89,8 @@
             android:id="@+id/action_compositionContentFragment_to_compositionFragment"
             app:destination="@id/compositionFragment" />
         <argument
-            android:name="resultComposition"
-            app:argType="com.example.module_main.data.bean.ResultComposition" />
+            android:name="compositionInfo"
+            app:argType="com.example.module_main.data.bean.CompositionInfo" />
     </fragment>
 
 

@@ -10,7 +10,6 @@ import com.example.module_main.R
 import com.example.module_main.data.bean.CompositionInfo
 import com.example.module_main.databinding.ListitemPositionBinding
 import com.example.module_main.event.fragment.RvCompositionAdapterListener
-import com.example.module_main.event.fragment.RvCompositionAdapterPositionLintener
 
 /*
 * 作文列表适配器
@@ -53,7 +52,9 @@ class RvCompositionAdapter(private val rvCompositionAdapterListener: RvCompositi
         init {
             binding.cvListitemRoot.setOnClickListener {
                 selectIndex = pos
-                binding.rvCompositionAdapterListener?.RvItemOnclick(it)
+                if(pos != -1){
+                    binding.rvCompositionAdapterListener?.RvItemOnclick(it, pos)
+                }
             }
         }
 

@@ -7,6 +7,10 @@
             name="viewmodel"
             type="com.example.module_main.state.CompositionContentViewModel" />
 
+        <variable
+            name="listener"
+            type="com.example.module_main.event.fragment.CompositionContentListener" />
+
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:transitionName="@string/position_detail_transition_name"
@@ -26,37 +30,43 @@
             android:id="@+id/tv_composition_content_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewmodel.compositionContent.school}"
+            android:text="@{viewmodel.compositionInfo.name}"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75" />
 
         <ImageView
             android:id="@+id/iv_composition_content_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{view -> listener.imgBackOnClickListener()}"
             android:src="@drawable/ic_composition_content_back"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.03"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.86" />
+            app:layout_constraintVertical_bias="0.75" />
 
         <TextView
             android:id="@+id/tv_writer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewmodel.compositionContent.content}"
+            android:text="@{viewmodel.compositionInfo.writer}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <androidx.core.widget.NestedScrollView
+            android:scrollbarThumbVertical="@color/nestscrollbar"
+            android:scrollbars="vertical"
+            android:scrollbarSize="2dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,16 +74,15 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-               <!-- android:background="#F1F1F1"-->
+                android:layout_height="match_parent">
+                <!-- android:background="#F1F1F1"-->
 
                 <TextView
                     android:id="@+id/textView14"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="353dp"
-                    android:text="@{viewmodel.compositionContent.content }"
+                    app:bind_setTextWithHTML="@{viewmodel.compositionContent.content}"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

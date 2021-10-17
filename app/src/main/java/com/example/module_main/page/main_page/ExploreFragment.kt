@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.airbnb.lottie.LottieDrawable
 import com.example.module_main.MainActivity
@@ -16,13 +18,15 @@ import com.example.module_main.base.BaseFragment
 import com.example.module_main.base.navhostFragmentsTemplateCodeInExploreFragment
 import com.example.module_main.page.adapter.Vp2ExploreAdapter
 import com.example.module_main.databinding.FragmentExploreBinding
+import com.example.module_main.event.fragment.CompositionThemeListener
 import com.example.module_main.event.fragment.NavigationIconClickListener
 import com.example.module_main.state.MainViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 /*
 * MainAty下的作文页面
 * */
-class ExploreFragment<noUseVM: ViewModel, DB: FragmentExploreBinding> : BaseFragment<noUseVM,DB>() {
+class ExploreFragment<noUseVM: ViewModel, DB: FragmentExploreBinding> : BaseFragment<noUseVM,DB>(),
+    CompositionThemeListener {
     private var flag = 1
     private val vp2ExploreAdapter: Vp2ExploreAdapter  get() =  Vp2ExploreAdapter(this)
     override fun onStart() {
@@ -35,6 +39,7 @@ class ExploreFragment<noUseVM: ViewModel, DB: FragmentExploreBinding> : BaseFrag
     override fun initBeforeBinding(savedInstanceState: Bundle?) {}
 
     override fun initBinding(savedInstanceState: Bundle?) {
+        mBinding.lifecycleOwner = this
         mBinding.navigationOnclickListener = MainViewModel.NavigationOnClickListener((mActivity as MainActivity).findViewById(R.id.drawerLayout))
 
         navhostFragmentsTemplateCodeInExploreFragment(mBinding, mActivity, flag)
@@ -73,6 +78,8 @@ class ExploreFragment<noUseVM: ViewModel, DB: FragmentExploreBinding> : BaseFrag
                 }
             })
         }
+
+        mBinding.includeCompositionTheme.classOnclickListener = this
     }
 
     override fun initAfterBinding(savedInstanceState: Bundle?) {
@@ -92,5 +99,10 @@ class ExploreFragment<noUseVM: ViewModel, DB: FragmentExploreBinding> : BaseFrag
     override fun onFragmentDestroy() {}
 
     override fun onFragmentAttach() {}
+    override fun classOnclickListener(urlParameter: String, baseUrl: String) {
+        val actionExploreFragmentToCompositionFragment: NavDirections =
+            ExploreFragmentDirections.actionExploreFragmentToCompositionFragment(urlParameter, baseUrl)
+        findNavController().navigate(actionExploreFragmentToCompositionFragment)
+    }
 
 }

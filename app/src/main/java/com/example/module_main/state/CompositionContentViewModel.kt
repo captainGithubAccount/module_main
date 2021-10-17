@@ -15,7 +15,7 @@ import com.example.module_main.data.bean.CompositionInfo
 import kotlinx.coroutines.launch
 
 class CompositionContentViewModel(private val compositionContentUrlParameter: String, private val apiService: ApiService) : ViewModel() {
-    private var _compositionInfo: MutableLiveData<CompositionInfo> = MutableLiveData<CompositionInfo>()
+    var _compositionInfo: MutableLiveData<CompositionInfo> = MutableLiveData<CompositionInfo>()
     val compositionInfo: LiveData<CompositionInfo> get() = _compositionInfo
 
     private var _compositionContent: MutableLiveData<CompositionContent> = MutableLiveData<CompositionContent>()

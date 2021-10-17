@@ -14,7 +14,7 @@ import com.example.module_main.data.bean.ResultComposition
 import kotlinx.coroutines.launch
 
 class CompositionListViewModel(private val compositionParameter: String,private val compositionBaseUrl: String,private val apiService: ApiService): ViewModel() {
-    private var _grade: MutableLiveData<String> = MutableLiveData<String>()
+    var _grade: MutableLiveData<String> = MutableLiveData<String>()
      val grade: LiveData<String> get() = _grade!!
 
     private var _compositionInfo: MutableLiveData<List<CompositionInfo>> = MutableLiveData<List<CompositionInfo>>()
@@ -24,14 +24,7 @@ class CompositionListViewModel(private val compositionParameter: String,private 
     val compositionResult: LiveData<ResultComposition> get() = _compositionResult
 
     init{
-        when(compositionParameter){
-            "11" -> _grade.value = "一年级"
-            "12" -> _grade.value = "二年级"
-            "13" -> _grade.value = "三年级"
-            "14" -> _grade.value = "四年级"
-            "15" -> _grade.value = "五年级"
-            "16" -> _grade.value = "六年级"
-        }
+
 
         getComposition(compositionParameter)
         Log.d("DDD_URL_LIST_INITIAL", compositionInfo.value.toString())

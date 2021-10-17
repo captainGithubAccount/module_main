@@ -1,8 +1,10 @@
 package com.example.module_main.binding_adapter
 
+import android.text.Html
 import android.util.Log
 import android.webkit.WebView
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -13,6 +15,14 @@ import com.example.module_main.data.bean.CompositionInfo
 import com.example.module_main.data.bean.Data
 import com.example.module_main.page.adapter.RvCompositionAdapter
 import com.example.module_main.page.adapter.RvTapsAdapter
+
+@BindingAdapter("bind_setTextWithHTML")
+fun bindText(textView: TextView, text: String?){
+    text?.let {
+
+        textView.setText(Html.fromHtml(text))
+    }
+}
 
 @BindingAdapter("bind_webviewUrl")
 fun binWebViewUrl(webView: WebView, webUrl: String?){

@@ -106,6 +106,9 @@
 
                 <!--        tab下的lottie部分        -->
                 <androidx.core.widget.NestedScrollView
+                    android:scrollbarSize="2dp"
+                    android:scrollbarThumbVertical="@color/nestscrollbar"
+                    android:scrollbars="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -141,7 +144,9 @@
                             android:layout_height="wrap_content" />
 
 
-                        <include layout="@layout/include_explore_nestscroll_content" />
+                        <include
+                            android:id="@+id/include_composition_theme"
+                            layout="@layout/include_explore_nestscroll_content" />
                     </LinearLayout>
                 </androidx.core.widget.NestedScrollView>
 

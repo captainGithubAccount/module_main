@@ -30,21 +30,22 @@
         <entry key="app/src/main/res/drawable/ic_user_bottom_navigation_view_stroke.xml" value="0.16197916666666667" />
         <entry key="app/src/main/res/drawable/shape_rest_navigation_background.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/drawable/shape_rest_nestedscrollview_background.xml" value="0.17592592592592593" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/layout/fragment_composition.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_composition_content.xml" value="0.28641975308641976" />
         <entry key="app/src/main/res/layout/fragment_composition_list.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.16203703703703703" />
         <entry key="app/src/main/res/layout/fragment_news_detail.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_rest.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_tab_game.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/fragment_tab_healthy.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_tab_host_rest.xml" value="0.15885416666666666" />
-        <entry key="app/src/main/res/layout/fragment_tab_in_explore_one.xml" value="0.23703703703703705" />
-        <entry key="app/src/main/res/layout/fragment_tab_in_explore_three.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_tab_in_explore_one.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_tab_in_explore_three.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_tab_in_explore_two.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_tab_in_rest_game.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/layout/fragment_tab_one.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_tap_in_rest_military.xml" value="0.15885416666666666" />
