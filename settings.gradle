@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "module_main"
 include ':app'
+include ':module_word'

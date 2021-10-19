@@ -2,6 +2,8 @@ package com.example.module_main.data.api
 
 
 import android.util.Log
+import android.widget.Toast
+import com.example.module_main.App
 import com.example.module_main.data.bean.*
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
@@ -29,7 +31,7 @@ class ApiService {
     }
 
     //发送get请求获取新闻数据
-    suspend fun sendRequestGetNews(requestUrl: String): NewsBean {
+    suspend fun sendRequestGetNews(requestUrl: String): NewsBean? {
         Log.d("TestResponse---", "走了Api下的发送请求方法,---url参数为:${requestUrl}")
         var jsonResponse: String? = null
         withContext(Dispatchers.IO) {
@@ -52,12 +54,18 @@ class ApiService {
                 Log.d("TestResponse---", e.message!!)
             }
         }
+        if(jsonResponse != null){
+            return jsonToNewsObject(jsonResponse)
 
-        return jsonToNewsObject(jsonResponse)
+        }else{
+            Toast.makeText(App.context,"糟糕，网络波动了，请从新申请数据把", Toast.LENGTH_SHORT).show()
+            return null
+        }
+
     }
 
     //发送get请求获取作文列表数据
-    suspend fun sendRequestGetCompositions(requestUrl: String): ComPositionBaseInfoList {
+    suspend fun sendRequestGetCompositions(requestUrl: String): ComPositionBaseInfoList? {
         //Log.d("TestResponse---", "走了Api下的发送请求方法,---url参数为:${requestUrl}")
         var jsonResponse: String? = null
         withContext(Dispatchers.IO) {
@@ -81,11 +89,18 @@ class ApiService {
             }
         }
 
-        return jsonToCompositionObject(jsonResponse)
+
+        if(jsonResponse != null){
+            return jsonToCompositionObject(jsonResponse)
+
+        }else{
+            Toast.makeText(App.context,"糟糕，网络波动了，请从新申请数据把", Toast.LENGTH_SHORT).show()
+            return null
+        }
     }
 
     //发送get请求获取作文数据
-    suspend fun sendRequestGetCompositionContent(requestUrl: String): CompositionContentInfo {
+    suspend fun sendRequestGetCompositionContent(requestUrl: String): CompositionContentInfo? {
         Log.d("TestResponse---", "走了Api下的发送请求方法,---url参数为:${requestUrl}")
         var jsonResponse: String? = null
         withContext(Dispatchers.IO) {
@@ -102,6 +117,13 @@ class ApiService {
             }
         }
 
-        return jsonToCompositionContentInfoObject(jsonResponse)
+
+
+        if(jsonResponse != null){
+            return jsonToCompositionContentInfoObject(jsonResponse)
+        }else{
+            Toast.makeText(App.context,"糟糕，网络波动了，请从新申请数据把", Toast.LENGTH_SHORT).show()
+            return null
+        }
     }
 }

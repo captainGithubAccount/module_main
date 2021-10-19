@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.Window
 import android.view.animation.AccelerateDecelerateInterpolator
 import com.example.module_main.databinding.FragmentRestBinding
 import androidx.core.content.ContextCompat
@@ -35,6 +36,7 @@ class RestFragment<noUseVM: ViewModel, DB: FragmentRestBinding> : BaseFragment<n
         // 如果postponeEnterTransition被调用，任何要运行的进入转换将被保持，直到调用结束调用startPostponedEnterTransition。这使我们有机会“安排”我们的转换，直到RecyclerView用电子邮件填充并且转换能够找到您配置的映射之后。
         postponeEnterTransition()
         view?.doOnPreDraw { startPostponedEnterTransition() }
+
 
         //整个碎片的动画
         //设置进出动画，避免列表跳转到详情页除了该列表其他部分白屏的情况

@@ -13,15 +13,14 @@ import androidx.navigation.fragment.findNavController
 import com.example.module_main.R
 import com.example.module_main.base.BaseFragment
 import com.example.module_main.data.api.Api
-import com.example.module_main.data.bean.Data
-import com.example.module_main.data.bean.URL_GAME
-import com.example.module_main.data.bean.URL_HEALTHY
+import com.example.module_main.data.bean.*
 import com.example.module_main.databinding.FragmentTabInRestBinding
 import com.example.module_main.event.fragment.RvTapsAdapterListener
 import com.example.module_main.page.adapter.RvTapsAdapter
 import com.example.module_main.page.main_page.RestFragmentDirections
 import com.example.module_main.state.TapRestViewModel
 import com.example.module_main.state.TapRestViewModelFactory
+import kotlinx.coroutines.runBlocking
 
 /*
 * RestFrg下的健康列表页面
@@ -53,24 +52,21 @@ class TabHealthyFragment<VM: TapRestViewModel, DB: FragmentTabInRestBinding> : B
         mBinding.lifecycleOwner = this
         //viewmodel
         mBinding.viewModel = viewModel
-//        binding.btnTest.setOnClickListener{
-//            viewModel.getNews(URL_REST)
-//        }
+
         mBinding.rvTapRestOverview.adapter = rvAdapter
-        /*val list = ArrayList<Data>()
-        list.add(Data(
-            "name",
-            "category",
-            "data",
-            "content",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "https://pics5.baidu.com/feed/d53f8794a4c27d1e01cf78c8b3ed4c69dcc43895.jpeg?token=66f090ff0ddccfed80f7093ec6f0d7b1&s=FD81EC1B43A3E4E406ECCDDF030040A3",
-            "title",
-            "key",
-            "ddd"
-        ))
-        rvAdapter.setData(list)*/
+
+        mBinding.srlTabAgainSendRequest.let {
+            it.setOnRefreshListener {
+                //由于接口每次返回的数据都是一样的无法起到下拉刷新的效果，所以需要更换访问的url
+                val urlList: ArrayList<String> = arrayListOf(URL_GAME, URL_MILITARY, URL_REST, URL_SPORTS, URL_SCIENCE, URL_HEALTHY)
+                runBlocking {
+                    //阻塞主线程防止网络还未加载完，下拉刷新的按钮已经失效
+                    viewModel.getNews(urlList.random())
+                }
+                it.isRefreshing = false
+
+            }
+        }
     }
 
     override fun initAfterBinding(savedInstanceState: Bundle?) {}
