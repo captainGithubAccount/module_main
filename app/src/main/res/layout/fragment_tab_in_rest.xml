@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.module_main.state.TapRestViewModel" />
@@ -11,31 +12,39 @@
             name="test"
             type="com.example.module_main.state.TapRestViewModel.OnClickListenerTest" />-->
     </data>
-
-    <androidx.core.widget.NestedScrollView
-        android:scrollbarThumbVertical="@color/nestscrollbar"
-        android:scrollbarSize="2dp"
-        android:scrollbars="vertical"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl_tab_again_send_request"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <Button-->
-<!--            android:id="@+id/btn_test"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="test"-->
-<!--            />-->
-        <androidx.recyclerview.widget.RecyclerView
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="2dp"
+        android:scrollbarThumbVertical="@color/nestscrollbar"
+        android:scrollbars="vertical">
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btn_test"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="test"-->
+        <!--            />-->
 
 
-            android:transitionGroup="true"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:id="@+id/rv_tap_rest_overview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:bind_listData="@{viewModel.news}"
+<!--            注意这里要rv控件大小不能为match_parent需要改为固定大小或wrap_content，要不rv界面部分直接为空白-->
+            <androidx.recyclerview.widget.RecyclerView
 
-            tools:listitem="@layout/listitem_tabs_viewholder1"
-            tools:itemCount="2"/>
+
+                android:id="@+id/rv_tap_rest_overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:transitionGroup="true"
+                app:bind_listData="@{viewModel.news}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                tools:itemCount="2"
+                tools:listitem="@layout/listitem_tabs_viewholder1" />
     </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

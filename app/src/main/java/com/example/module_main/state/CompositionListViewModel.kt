@@ -38,7 +38,11 @@ class CompositionListViewModel(private val compositionParameter: String,private 
         //val urlWithParameter: String = "${BASE_URL_INFO_COMPOSITION}${contentId}"
         Log.d("DDD_URL", urlWithParameter)
         viewModelScope.launch {
-            val result = apiService.sendRequestGetCompositions(urlWithParameter).result
+            val dataResponse = apiService.sendRequestGetCompositions(urlWithParameter)
+            val result: ResultComposition?
+            if(dataResponse != null){
+                val result = dataResponse.result
+
             if(result != null){
                 _compositionResult.value =result!!
                 Log.d("DDD_URL", _compositionResult.value.toString())
@@ -47,6 +51,7 @@ class CompositionListViewModel(private val compositionParameter: String,private 
                 Log.d("DDD_URL", _compositionInfo.value.toString())
             }else{
                 Toast.makeText(App.context, "今天的composition list api免费次数已经用完，明天再来吧", Toast.LENGTH_SHORT).show()
+            }
             }
 
         }

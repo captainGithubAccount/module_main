@@ -13,15 +13,16 @@ import androidx.navigation.fragment.findNavController
 import com.example.module_main.R
 import com.example.module_main.base.BaseFragment
 import com.example.module_main.data.api.Api
-import com.example.module_main.data.bean.Data
-import com.example.module_main.data.bean.URL_MILITARY
-import com.example.module_main.data.bean.URL_REST
+import com.example.module_main.data.bean.*
 import com.example.module_main.databinding.FragmentTabInRestBinding
 import com.example.module_main.event.fragment.RvTapsAdapterListener
 import com.example.module_main.page.adapter.RvTapsAdapter
 import com.example.module_main.page.main_page.RestFragmentDirections
 import com.example.module_main.state.TapRestViewModel
 import com.example.module_main.state.TapRestViewModelFactory
+import kotlinx.coroutines.runBlocking
+import kotlin.random.Random
+
 /*
 * RestFrg下的娱乐列表页面
 * */
@@ -48,6 +49,18 @@ class TabRestFragment<VM: TapRestViewModel, DB: FragmentTabInRestBinding> : Base
         mBinding.lifecycleOwner = this
         mBinding.viewModel = viewModel
         mBinding.rvTapRestOverview.adapter = rvAdapter
+        mBinding.srlTabAgainSendRequest.let {
+            it.setOnRefreshListener {
+                //由于接口每次返回的数据都是一样的无法起到下拉刷新的效果，所以需要更换访问的url
+                val urlList: ArrayList<String> = arrayListOf(URL_GAME, URL_MILITARY, URL_REST, URL_SPORTS, URL_SCIENCE, URL_HEALTHY)
+                runBlocking {
+                    //阻塞主线程防止网络还未加载完，下拉刷新的按钮已经失效
+                    viewModel.getNews(urlList.random())
+                }
+                it.isRefreshing = false
+
+            }
+        }
     }
 
     override fun initAfterBinding(savedInstanceState: Bundle?) {}
