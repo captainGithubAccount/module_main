@@ -1,8 +1,7 @@
 package com.example.module_main.page.main_page
 
-import android.graphics.Bitmap
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,10 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.module_main.R
+import com.example.module_main.moudle_word.WordActivity
 import com.google.android.material.transition.MaterialElevationScale
 
 /*
@@ -19,7 +21,7 @@ import com.google.android.material.transition.MaterialElevationScale
 class TranslateFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_translate, container, false)
@@ -42,6 +44,13 @@ class TranslateFragment : Fragment() {
         }
         reenterTransition = MaterialElevationScale(true).apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+        }
+
+        view.findViewById<TextView>(R.id.tv_inicio_olicita).apply {
+            setOnClickListener {
+                startActivity(Intent(requireActivity(), WordActivity::class.java))
+            }
+
         }
 
         view.findViewById<WebView>(R.id.wv_login_privacy_detail_content).apply {

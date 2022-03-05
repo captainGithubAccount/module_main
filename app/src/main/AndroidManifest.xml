@@ -12,6 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Module_Main">
+        <activity android:name=".moudle_word.WordActivity"
+            android:theme="@style/Theme.Moudle_Word"
+            android:windowSoftInputMode="adjustNothing">
+
+        </activity>
 
         <activity
 
@@ -24,6 +29,7 @@
             </intent-filter>
 
         </activity>
+
 
     </application>
 
