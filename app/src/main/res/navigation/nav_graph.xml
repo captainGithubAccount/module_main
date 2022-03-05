@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/wordFragment"
-        android:name="com.lwj_template.moudle_word.WordFragment"
+        android:name="com.example.module_main.moudle_word.WordFragment"
         android:label="fragment_word"
         tools:layout="@layout/fragment_word" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.lwj_template.moudle_word.AddFragment"
+        android:name="com.example.module_main.moudle_word.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
 </navigation>
