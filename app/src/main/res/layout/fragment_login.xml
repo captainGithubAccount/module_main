@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="com.example.module_login.ui.state.LoginViewModel"/>
+        <variable
+            name="loginTextListener"
+            type="com.example.module_login.ui.state.LoginViewModel.TextWatcherListener" />
+        <variable
+            name="loginBtnListener"
+            type="com.example.module_login.ui.state.LoginViewModel.BtnLoginListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.page.LoginFragment">
+
+        <ImageView
+            android:id="@+id/iv_login"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:src="@drawable/ic_login_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLoginUserName"
+            style="@style/Widget.App.TextInputLayout"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:hint="请输入您的昵称"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_login"
+            app:startIconDrawable="@drawable/ic_login_user"
+            app:strokeColor="#A8A8A8">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUserName"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="58dp"
+                android:onTextChanged="@{loginTextListener::onTextChanged}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLoginPassword"
+            style="@style/Widget.App.TextInputLayout"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilLoginUserName"
+            app:startIconDrawable="@drawable/ic_login_password"
+            app:strokeColor="#A8A8A8">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入您的密码"
+                android:maxHeight="58dp"
+                android:onTextChanged="@{loginTextListener::onTextChanged}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_login_jump_to_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{loginViewModel::tvRegisterJumpToRegisterPage}"
+            android:padding="10dp"
+            android:text="注册用户"
+            android:textColor="#C0C0C0"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.95" />
+
+        <Button
+            android:id="@+id/btn_login_jump_to_main"
+            style="@style/Widget.App.Button"
+            android:layout_width="245dp"
+            android:layout_height="65dp"
+            android:onClick="@{loginBtnListener::onClick}"
+            android:text="Login"
+            android:textColor="#C0C0C0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilLoginPassword"
+            app:strokeColor="#A8A8A8" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/ivlottie_login_loading"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login_jump_to_main"
+            app:lottie_rawRes="@raw/lottie_login_loading" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
