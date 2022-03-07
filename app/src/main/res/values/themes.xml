@@ -57,6 +57,27 @@
         <item name="color">@color/white</item>
     </style>
 
+
+
+
+
+    <style name="Theme.Login" parent="Theme.MaterialComponents.NoActionBar">
+        <!--        &lt;!&ndash; change navigation bar color &ndash;&gt;-->
+        <!--        <item name="android:navigationBarColor">-->
+        <!--            @android:color/transparent-->
+        <!--        </item>-->
+
+        <!--        &lt;!&ndash; change status bar color &ndash;&gt;-->
+        <!--        <item name="android:statusBarColor">-->
+        <!--            @android:color/transparent-->
+        <!--        </item>-->
+        <item name = "android:windowTranslucentStatus">true</item>
+        <item name = "android:windowTranslucentNavigation">true</item>
+
+    </style>
+
+    <!--material-->
+
     <style name="Widget.Shrine.Toolbar" parent="Widget.AppCompat.Toolbar">
         <item name="android:background">@color/colorAccent</item>
         <item name="android:theme">@style/Theme.Module_Main</item>
@@ -75,6 +96,38 @@
 
     <style name="Widget.Shrine.Backdrop" parent="">
         <item name="android:background">@drawable/bg_backdrop_back_layer</item>
+    </style>
+
+
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorError">#ffff0000</item>
+
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
+    </style>
+
+
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+
+
+
+    <style name="ThemeOverlay.App.Button" parent="">
+        <item name="colorPrimary"> #9F5F9F</item>
     </style>
 
     <!-- Base application theme. -->
