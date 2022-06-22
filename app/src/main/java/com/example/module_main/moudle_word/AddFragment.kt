@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.module_main.App
 import com.example.module_main.R
 import com.example.module_main.databinding.FragmentAddBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -30,7 +31,7 @@ class AddFragment : Fragment() {
 
     lateinit var edChinese: EditText
     private val wordViewModel: WordViewModel by viewModels<WordViewModel>{
-        WordViewModelFactory((activity?.application as WordsApplication).repository)
+        WordViewModelFactory((activity?.application as App).repository)
     }
 
 
@@ -82,9 +83,9 @@ class AddFragment : Fragment() {
                 val english = edEnglish.text.toString().trim()
                 val chinese = edChinese.text.toString().trim()
                 wordViewModel.insertWords(WordEntity( english, chinese))
-
-                findNavController().navigateUp()
-
+                findNavController().navigate(R.id.wordFragment)
+                //Navigation.findNavController(findViewById(R.id.nav_word)).navigateUp()
+                //requireActivity().onBackPressed()
             }
         }
 

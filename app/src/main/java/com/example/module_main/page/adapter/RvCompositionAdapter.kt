@@ -20,7 +20,6 @@ class RvCompositionAdapter(private val rvCompositionAdapterListener: RvCompositi
         set(value) {
             if (field != value) {
                 notifyDataSetChanged()
-
 //                notifyItemChanged(field)
                 field = value
 //                notifyItemChanged(value)
@@ -36,7 +35,6 @@ class RvCompositionAdapter(private val rvCompositionAdapterListener: RvCompositi
 
     override fun onBindViewHolder(holder: CompositionInfoVh, position: Int) {
         holder.pos = position
-
         val itemCompositionInfo: CompositionInfo = getItem(position)
         if (position == selectIndex) {
             holder.bindSelected(itemCompositionInfo)

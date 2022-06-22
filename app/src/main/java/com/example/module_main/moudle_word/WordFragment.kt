@@ -152,7 +152,6 @@ class WordFragment : Fragment() {
         val searchManager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
         (menu.findItem(R.id.search_word_menu).actionView as SearchView).apply {
             maxWidth = 800
-
             //searchView文本监听
             setOnQueryTextListener(object: SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -187,7 +186,6 @@ class WordFragment : Fragment() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         var alertDialog: AlertDialog? = null
         when(item.itemId) {
             R.id.clear_word_menu ->
@@ -207,14 +205,11 @@ class WordFragment : Fragment() {
                                 })
                     }
                     // Set other dialog properties
-
-
                     // Create the AlertDialog
                     builder.create()
                     builder.show()
                 }
         }
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -258,20 +253,17 @@ class WordFragment : Fragment() {
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                 return false
             }
-
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 //拿到要删除的item对应的WordEntity
                 val wordItemDelete: WordEntity? = words?.value?.get(viewHolder.adapterPosition)//words.value调用get方法很可能不能实时返回结果, 尤其是当正在异步查询的时候
                 wordItemDelete?.run{
                     wordViewModel.deleteWords(this)
                 }
-
                 //误删除数据的撤销处理
                 Snackbar.make(binding.rvWordfragmentContent, "您删除了一条数据", Snackbar.LENGTH_SHORT)
                         .setAction("撤销") { v ->
                             wordViewModel.insertWords(wordItemDelete!!)
                         }.show()
-
             }
         }){}.attachToRecyclerView(rv)
 

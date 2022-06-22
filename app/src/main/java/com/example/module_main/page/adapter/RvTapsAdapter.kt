@@ -1,13 +1,11 @@
 package com.example.module_main.page.adapter
 
-import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.module_main.data.bean.Data
 import com.example.module_main.data.bean.NewsBean
+import com.example.module_main.data.bean.Data
 import com.example.module_main.databinding.ListitemTabsViewholder1Binding
 import com.example.module_main.databinding.ListitemTabsViewholder2Binding
 import com.example.module_main.databinding.ListitemTabsViewholder3Binding
@@ -25,35 +23,6 @@ class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.
 
     override fun getItemViewType(position: Int): Int {
         val data = datas.get(position)
-        /*if( !TextUtils.isEmpty(data.thumbnail_pic_s) && TextUtils.isEmpty(data.thumbnail_pic_s02)){
-            Log.d("ViewHolder",  "ViewHolder type  - 1")
-            return TYPE_VIEWHOLDER_ONE_PICTURE
-        }else if(!TextUtils.isEmpty(data.thumbnail_pic_s) && TextUtils.isEmpty(data.thumbnail_pic_s02) == false && TextUtils.isEmpty(data.thumbnail_pic_s03) == true){
-            Log.d("ViewHolder",  "ViewHolder type  -- 2")
-            return TYPE_VIEWHOLDER_TWO_PICTURE
-        }else if(!TextUtils.isEmpty(data.thumbnail_pic_s) && !TextUtils.isEmpty(data.thumbnail_pic_s02) && !TextUtils.isEmpty(data.thumbnail_pic_s03)){
-            Log.d("ViewHolder",  "ViewHolder type  --- 3")
-            return TYPE_VIEWHOLDER_THREE_PICTURE
-        }else{
-            Log.d("ViewHolder",  "ViewHolder type  - 1 else")
-            return super.getItemViewType(position)
-        }*/
-
-
-       /* if(data.thumbnail_pic_s.isNullOrEmpty() == false && data.thumbnail_pic_s02.isNullOrEmpty() == true && data.thumbnail_pic_s03.isNullOrEmpty() == true){
-            Log.d("ViewHolder",  "ViewHolder type  - 1")
-            return TYPE_VIEWHOLDER_ONE_PICTURE
-        }else if( data.thumbnail_pic_s02.isNullOrEmpty() == false && data.thumbnail_pic_s03.isNullOrEmpty() == true){
-            Log.d("ViewHolder",  "ViewHolder type  -- 2")
-            return TYPE_VIEWHOLDER_TWO_PICTURE
-        }else if(data.thumbnail_pic_s.isNullOrEmpty() == false && data.thumbnail_pic_s02.isNullOrEmpty() == false && data.thumbnail_pic_s03.isNullOrEmpty() == false){
-            Log.d("ViewHolder",  "ViewHolder type  --- 3")
-            return TYPE_VIEWHOLDER_THREE_PICTURE
-        }else{
-            Log.d("ViewHolder",  "ViewHolder type  - 1 else")
-            return super.getItemViewType(position)
-        }*/
-
         if(data.thumbnail_pic_s != null && data.thumbnail_pic_s02 == null && data.thumbnail_pic_s03 == null){
             return TYPE_VIEWHOLDER_ONE_PICTURE
         }else if(data.thumbnail_pic_s != null && data.thumbnail_pic_s02 != null && data.thumbnail_pic_s03 == null){
@@ -98,7 +67,6 @@ class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.
         when(viewType){
             TYPE_VIEWHOLDER_ONE_PICTURE ->
                 return OnePictureVh(ListitemTabsViewholder1Binding.inflate(LayoutInflater.from(parent.context),parent,false))
-
             TYPE_VIEWHOLDER_TWO_PICTURE ->
                 return  TwoPictureVh(ListitemTabsViewholder2Binding.inflate(LayoutInflater.from(parent.context),parent,false))
             TYPE_VIEWHOLDER_THREE_PICTURE ->
@@ -108,8 +76,6 @@ class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.
             else ->
                 return OnePictureVh(ListitemTabsViewholder1Binding.inflate(LayoutInflater.from(parent.context),parent,false))
         }
-
-
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -121,7 +87,6 @@ class RvTapsAdapter(private val listener: RvTapsAdapterListener) : RecyclerView.
             is ThreePictureVh ->
                 holder.bind(datas.get(position), listener)
         }
-
     }
 
     override fun getItemCount(): Int = datas.size

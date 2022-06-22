@@ -30,17 +30,14 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     //登录按钮点击事件
     class BtnLoginListener(private var _binding: FragmentLoginBinding, private var _activity: Activity){
-
         fun onClick(p0: View?) {
             _binding.ivlottieLoginLoading.visibility = View.VISIBLE
             _binding.ivlottieLoginLoading.let{
                 it.repeatCount = 10
                 it.playAnimation()
             }
-
-            var userName = _binding.etUserName.text?.trim().toString()
-            var userPassword = _binding.etPassword.text?.trim().toString()
-
+            val userName = _binding.etUserName.text?.trim().toString()
+            val userPassword = _binding.etPassword.text?.trim().toString()
             LCUser.logIn(userName, userPassword).subscribe(object :
                 Observer<LCUser?> {
                 override fun onSubscribe(disposable: Disposable) {}
@@ -50,16 +47,13 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 }
                 override fun onComplete() {}
                 override fun onNext(t: LCUser) {
-
                     Toast.makeText(_activity, "登录成功", Toast.LENGTH_SHORT).show()
                     // 登录成功
                     val intent = Intent(_activity, MainActivity::class.java)
                     _activity.startActivity(intent)
                     _activity.finish()
                 }
-
             })
-
         }
     }
 

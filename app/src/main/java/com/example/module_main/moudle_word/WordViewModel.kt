@@ -23,14 +23,14 @@ class WordViewModel(private val _wordRepository: WordRepository): ViewModel() {
     @WorkerThread
     fun insertWords(vararg wordEntity: WordEntity){
         viewModelScope.launch {
-            withContext(Dispatchers.Default){
+            withContext(Dispatchers.IO){
                 _wordRepository.insertWords(*wordEntity)
             }
         }
     }
 
-    /*推荐写法
-    @WorkerThread
+    //推荐写法
+    /*@WorkerThread
     fun insertWords(vararg wordEntity: WordEntity){
         viewModelScope.launch {
             _wordRepository.insertWords(*wordEntity)
@@ -47,13 +47,11 @@ class WordViewModel(private val _wordRepository: WordRepository): ViewModel() {
     }
 
     //    清空数据
-
     fun deleteAllWords(){
         viewModelScope.launch {
             withContext(Dispatchers.Default){
                 _wordRepository.deleteAllWords()
             }
-
         }
     }
 
